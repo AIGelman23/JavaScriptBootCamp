@@ -320,4 +320,115 @@ const board = [
   ['X', 'O', null]
 ]
 
+// We have the first row which is in itself
+// an array '0, null, X' 
+// this is a multi-dimensional array
+// you can have a 3-Dimensional array for cube
+
+/*
+const fitbitData = [
+  308727, 
+  1814, 
+  211
+] */
+
+// This would not be clear what exactly each piece of 
+// data is for in the array 
+
+/*
+const lucyFitbitData = [
+  12344, 
+  1814, 
+  211
+] */
+
+
+// let lucyTotalSteps = 123123; 
+
+// could have many variables with the name lucy as a part
+// of the variable but this would be a very confusing way
+// to do things
+
+// An Object! 
+
+// We can define these pairs of information associate with 
+// an object (otherwise known as properties)
+
+// Objects are collections of properties
+// Properties are a key value pair
+// Rather than accessing data using an index, 
+// we use custom keys
+
+// ex. age: 20, zip: 91003, city: 'Tulsa', isAdmine: true
+// a blob of data that holds key value pairs, it's 
+// about holding key pairs of data and we don't use 
+// a number to access our data from the object
+// instead if this is an object you say give me city, zip, etc
+
+// Key-Value Pairs
+// Keys              Values
+// username: -----> 'crazyCatLady'
+// upVotes: -----> 7
+// text ------> 'great post!'
+
+// In Python objects are called dictionaries 
+// You have some words you are trying to look up 
+// you don't have the definition in mind, you 
+// need the key first to find the definition
+// the key helps find the corresponding value
+
+// Object is a container that contains information 
+// in the form of pairs - when you put in a value
+// you pair it witih a key
+
+// If order is paramount and we for instance are
+// storing 'race results' as an example from a 
+// a marathon we definitely want to store the 
+// results an array so that the data is tied in 
+// to a specific order
+
+// When signifying or defining an object literal we use 
+// curly braces (not brackets which arrays would otherwise use)
+
+// totalSteps -> 308727,
+// totalMiles -> 211.7, 
+// avgCalorieBurn -> 5755, 
+// workoutsThisWeek -> '5 of 7'
+// avgGoodSleep -> '2:13's
+
+// When you store an object in a variable it is a reference
+// to that object -- we can use const   
+
+const fitBitData = {
+  totalSteps: 308727,
+  totalMiles: 211.7, 
+  avgCalorieBurn: 5755, 
+  workoutsThisWeek: '5 of 7',
+  avgGoodSleep: '2:13', 
+  45: 'forty five'
+};
+
+// Order is not the point of an object - this would be more
+// for an array 
+
+// fitBitData.totalSteps to pull out the data
+// When we create a JavaScript object the keys 
+// are automatically converted to strings
+
+// All Keys * are converted to strings
+// There is not always the need to use a fitBitData. or dot 
+// something to derive data from an associated key pair
+
+let data = { 
+  a: 1, 
+  b: 2, 
+  c: 3 
+};
+
+// JavaScript knows that if a comma is put after the 1 
+// the Object is done
+// Every other comma separating properties is not optional
+
+
+
 
