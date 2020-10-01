@@ -189,3 +189,135 @@ ingredients.indexOf('flour') !== -1;
 
 let letters = [ 'T', 'C', 'E', 'P', 'S', 'E', 'R'];
 
+letters.reverse() 
+
+// flips the array around
+
+letters.reverse().join('.');
+
+let animals = ['shark', 'salmon', 'whale', 'bear', 'lizard', 'tortoise'];
+
+let swimmers = animals.slice(0,3);
+
+let mammals = animals.slice(2,4); 
+
+// let reptiles = animals.slice(4, 6);
+let reptiles = animals.slice(4);
+
+// we can slice using negative number
+
+let quadruped = animals.slice(-3);
+
+// animals.slice() is a quick way of making a copy of an array
+// and doesn't impact the original -- you would have two versions
+// why would we make a copy? and why is this different?
+
+
+
+// splice(startIdx, deleteCount, itemsToInsert);
+
+// usually you would use .splice() to edit the middle of an array
+// you don't have to insert and or delete anything with .splice()
+
+
+/*
+animals.splice(1,0,'octopus')
+[]
+animals
+(7) ["shark", "octopus", "salmon", "whale", "bear", "lizard", "tortoise"]
+
+*/
+
+/*
+animals.splice(3, 2)
+(2) ["whale", "bear"]
+animals
+(5) ["shark", "octopus", "salmon", "lizard", "tortoise"]
+*/
+
+/*
+animals.splice(3,0,'snake', 'frog')
+animals
+(7) ["shark", "octopus", "salmon", "snake", "frog", "lizard", "tortoise"]
+*/
+
+// You can use .splice() to remove items in the middle and or delete items
+// you can also use it to replace elements in the array
+// Push, Pop, Shift, and Unshift is used more commonly but
+// splice() is good for replacing many items at a time
+
+let people = [ 'Mrs. Robinson', 'Angie', 'Jolene', 'Maggie May', 'Roxanne'];
+
+// updates array in place and changes the array in place alphabetically
+
+let nums = [34, 10, 100000, 67, 99];
+
+// converts to string and compares character codes
+// not a numeric sort -- if you don't pass in a function
+// the default sort is based on character codes
+// we can still make sort work the way we want it
+
+// strings, numbers, variables, booleans, undefined work
+// differently than objects
+
+let fruit = "orange";
+let fruitColor = fruit; 
+fruit = "watermelon";
+
+// arrays can contain tons of information
+// javascript stores a reference to that array and 
+// we are not able to see it
+// when we work with arrays and hold them an array 
+// the variable holds a pointer to where the value is stored
+
+let numbers = [5,6,7,8]; // numbers is a reference in memory
+let otherNumbers = numbers; // otherNumbers will point to the same array in memory or reference
+
+// when you work with arrays they are stored as reference types in memory 
+// rather than the actual value stored in memory 
+
+// Important Distinction: 
+// primitive types are actually stored as the value in a variable 
+// arrays are stored as a reference or pointer in memory
+
+const city = "Lisbon";
+
+// cannot reassign or give a new value to a const variable
+// this is about to change because arrays are reference points
+// not the actual values
+
+// myEggs --> pointing to an array with all the values in it 
+// the only thing stored in myEggs is the reference
+// even though const we can push values, empty out the array, 
+// but you can't assign to a new array in memory
+// you can't change the reference, but you can change anything inside
+// the existing array as long as you don't severe that tie or that arrow
+// pointing to that reference 
+// You just need a variable used constantly with an array 
+// We can't point to a new array or a string or to a boolean
+
+const someColors = [
+  ['red', 'crimson'],
+  ['orange', 'dark orange'],
+  ['yellow', 'golden rod'],
+  ['green', 'olive'],
+  ['blue', 'navy blue'],
+  ['purple', 'orchid']
+]
+
+const animalPairs = [
+  ['doe', 'buck'],
+  ['ewe', 'ram'],
+  ['peahen', 'peacock']
+]
+
+// an array is usually the best way for explicity saving 
+// information 
+
+const board = [
+  ['O', null, 'X'],
+  [null, 'X', 'O'],
+  ['X', 'O', null]
+]
+
+
