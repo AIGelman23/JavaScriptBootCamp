@@ -429,6 +429,101 @@ let data = {
 // the Object is done
 // Every other comma separating properties is not optional
 
+// Valid Keys - All keys are converted to strings * 
+// Except for Symbols, which we haven't covered yet
+
+const numbersExample = {
+    100: 'one hundred', 
+    16: 'sixteen',
+    '76 trombones': 'great songs'
+}
+
+// Accessing Data - we use array brackets and then we put the 
+// key inside those brackets
+// Sometimes you have property names that aren't valid 
+// JavaScript identifiers such as the name of a variable
+// let my cat = '' - not a valid identifier you will get a syntax error
+// let76trombones = '' - can't have variable name start as a number
+
+const palette = {
+  red: '#eb4d4b', 
+  yellow: '#f9ca24',
+  blue: '#30336b',
+};
+
+let mysteryColor = 'yellow';
+
+// will look for the value of mysteryColor which is yellow
+// and then plug in the value of yellow
+// this would not work for palette.mysteryColor because
+// this is not key property of the javascript object
+// just like an array if we try to access a property 
+// that is not defined such as an index of 99 in [1,2,3][99]
+// we get undefined because it again doesn't exist
+// palette['asd'] is undefined 
+// palette.asd is undefined
+// not that you should be you could use palette["bl"+"ue"];
+// try to use dot (.) notation first like palette. first and
+// if not use square brackets, if there is a dynamic value key
+// use square brackets
+
+// Updating and Adding Properties
+
+const userReviews = {};
+
+userReviews['queenBee49'] = 4.0;
+userReviews.mrSmith78 = 3.5;
+userReviews['queenBee49'] += 2;
+userReviews.mrSmith78++;
+
+// whether we are accessing a property that is already 
+// there are updating an existing property we either
+// use square brackets or dot notation
+
+// Just like arrays we can also nest objects
+// We can fill objects with keys that are arrays 
+// or other objects
+
+const student = {
+  firstName: 'David', 
+  lastName: 'Jones',
+  strengths: ['Music', 'Art'],
+  exams : {
+    midterm: 92,
+    final: 88
+  }
+};
+
+// to find the total score of exams by accessing the nested
+// exams object within the student object we would do the 
+// following: 
+// const avg = (student.exams.midterm + student.exams.final) 
+//              / 2;
+// student.strengths[1]
+// we could keep indexing on and on and on
+
+const shoppingCart = [ {
+  product: 'Jenga Classic',
+  price: 6.88, 
+  quantity: 1
+}, 
+{
+  product: 'Echo Dot', 
+  price: 29.99, 
+  quantity: 3
+},
+{ 
+  product: 'Fire Stick',
+  price: 39.99,
+  quantity: 2
+}
+];
+
+// simple shopping cart with an array of objects 
+// seen above
+
+
+
 
 
 
