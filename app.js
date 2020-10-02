@@ -524,6 +524,155 @@ const shoppingCart = [ {
 
 
 
+// if we wat to represent one tick tack toe board in an 
+// object where we had an object to track player 1 and
+// player 2 
 
+const game = {
+  player1: {
+    username: 'Blue',
+    playingAs: 'X'
+  },
+  player2: {
+    username: 'Jazzy',
+    playingAs: 'O'
+  },
+  board: [
+    [['O', null, 'X']],
+    [['X', 'O', 'X']],
+    [[null, 'O', 'X']]
+    ]
+};
 
+// objects like a const variable of palette or const palette
+// are a reference to an object not an actual variable 
+// it is more of a pointer just as with an array
 
+const palette2 = palette;
+
+palette2.green = '#ebf876';
+
+// none of them store the actual object but point to the object
+// objects are reference types just like arrays
+// therefore they use const to always be pointing 
+// to the same object, and we can change the contents
+// of the object as long as we don't assign the object
+// to something entirely different - in that case 
+// we would need to use let
+// for arrays and objects we use const more often that 
+// using primitives, let, and other types
+
+let numNext = [1,2,3];
+let mystery = [1,2,3];
+let moreNums = numNext;
+
+// not storing the numbers in the variable - storing the
+// reference points such as nums -> 2233434234234
+// we are comparing 34234234324234 === 553344334334
+// or two reference points
+
+// if you are trying to see if an array is equal to another
+// array - you have to check if they look the same 
+
+const user = {
+  username: 'CherryGarcia8', 
+  email: 'garcia@gmail.com',
+  notifications: [ 'message' ]
+};
+
+/*
+if(user.notifications === []) {
+  console.log('No new notifications!');
+}; // this won't work!
+*/
+
+/* if (user.notifications.length === 0) {
+  console.log('No new notifications!');
+};  // this will work!
+*/  
+
+if (!user.notifications.length) {
+  console.log('No new notifications!');
+};  
+
+// check if an array looks like another array, 
+// but isn't empty can be tricky until we talk about
+// loops, we would need to manually compare every 
+// value in an array
+
+// == and === will only check arrays for equality 
+// of reference not equality of contents and 
+// the same thing hold trues for objects
+// unless they are referring to the same place in 
+// memory such as: 
+// let data2 = {a:1}
+// let data2 = data1
+// data1 === data2
+// true
+
+// LOOPS - Repeating Code
+// Not just repeating console.logs 
+// Need logic to run multiple times
+// Goals: 
+// Write FOR loops
+// Write WHILE loops
+// Avoid INFINITE loops!
+// Iterate over arrays and objects
+
+// If we want to sum every number in an array
+// and loop through and add them to a variable
+// we are changing what is happening each time
+// through the loop 
+
+// The underlying data structure has an array of posts
+// with each post being an object 
+// each post has a title, link, username, upvotes, confirmation, 
+// date posted, 
+// There is a loop that is looping through an array of 
+// all this data and putting some content in for it
+// putting images, etc
+// none of this is hard-coded - if there were a thousand
+// posts it would run a thousand times
+// game loops, if there are still playable moves let the 
+// user keep playing - listen for an event for a key press
+// there could be a couple hundred arrow presses on a keyboard
+// we aren't looping a set number of type every single time
+// it's dynamic - until a condition is met
+
+// Loops do things repeatedly 
+// - Loops allow us to repeat code
+// -- "Print 'hello' 10 times
+// -- Sum all numbers in an array
+// There are multple types: 
+// -- for loop
+// -- while loop
+// for...of loop
+// for...in loop
+
+// FOR Loops 
+//
+/*
+
+  for (
+    [initialExpression];
+    [condition];
+    [incrementExpression]
+  )
+
+    10 total times
+
+    50 initial value
+    60 when to run the loop
+    +1 how to change value each time
+    
+*/
+
+for(let i = 1; i <= 10; i++) {
+  console.log("Hello", i);
+};
+
+// it is common to use i++ for incrememnting by 1 
+// you could also use i+=3 to increment by 3 each time
+// the variable or letter i is shown the amount incremented
+// by each time the for loop runs until the final condition
+// is met and is true
