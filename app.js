@@ -810,3 +810,42 @@ for(let i = 1; i <= 10; i++){
 // For an index - it is standard to move up from i to j
 // Then k --- avoid nesting or just use two loops
 
+// The inner loops completes a full cycle everytime the outer
+// loop iterates by 1
+// You would multiply X (outer loop iterations) times 
+// Y (inner loop iterations) and that's how many
+// total iterations you would have between the nested loops
+
+const gamerBoard = [
+  [ 4, 32, 8, 4 ],
+  [ 64, 8, 32, 2 ],
+  [ 8, 32, 16, 4 ],
+  [ 2, 8, 4, 2 ]
+];
+
+// First loop is going to loop over this outer array
+// Which would be the 4 nested arrays 
+
+let totalScore = 0;
+for(let i = 0; i < gamerBoard.length; i++) {
+  let row = gamerBoard[i];
+  // console.log(row);
+  for (let j = 0; j < row.length; j++){
+   // console.log(row[j]);
+   totalScore += row[j];
+   console.log(totalScore);
+  }
+};
+
+// each loop for the outer loop we have a full 
+// cycle for the inner loop before out loop moves
+// on and increments to meet a condition
+
+// WHILE loops - a while loop continues to run as long
+/// as its test condition is true
+
+let numms = 0;
+while (numms < 10) {
+  console.log(numms);
+  numms++
+};
