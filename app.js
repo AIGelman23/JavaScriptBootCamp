@@ -701,5 +701,112 @@ for(let i = 200; i >= 0; i-=25){
 // Nothing happens
 // Loops until condition is false
 
-// INFINITE loops
+// INFINITE loops ---- BAD!!!
+
+// for (let i = 1; i !==20; i+2{
+// console.log(i);
+// };
+
+// Will keep going and chrome will ask to kill process
+// causes everything to crash and the CPU is doing all
+// these computations and never an end in site
+
+// for(let = 100; i <= 0; i--) {
+// console.log(i);
+// }
+//
+// Never use equality and or non-equality
+// Make sure you are going in the right direction
+
+/*
+
+For Loops + Arrays
+To loop over an array, start at 0 and 
+continue to the last index (length-1)
+*/
+
+const animalz = ['lions', 'tigers', 'bears'];
+
+for (let i = 0; i < animalz.length; i++) {
+  console.log(i, animalz[i]);
+};
+
+// 0 'lions'
+// 1 'tigers'
+// 2 'bears'
+
+// As long as the i variable is less than the 
+// length of the array or the array of animals
+
+const examScores = [98, 77, 84, 91, 57, 66];
+
+for (let i = 0; i < examScores.length; i++) {
+  console.log(i, examScores[i]);
+};
+
+const myStudents = [
+  {
+    firstName: 'Zeus',
+    grade: 86
+  }, 
+  {
+    firstName: 'Artemis',
+    grade: 97
+  }, 
+  {
+    firstName: 'Hera',
+    grade: 72
+  }, 
+  {
+    firstName: 'Appolo',
+    grade: 90
+  }
+];
+
+for (let i = 0; i < myStudents.length; i++) {
+  let student = myStudents[i];
+  console.log(`${student.firstName} scored ${student.grade}`);
+};
+
+const word = 'stressed';
+let reversedWord = '';
+for (let i = word.length -1; i >= 0; i-- ) {
+  reversedWord += word[i];
+  console.log(reversedWord);
+};
+
+
+let total = 0;
+
+for (let i = 0; i < myStudents.length; i++) {
+  let student = myStudents[i];
+  total += student.grade;
+  console.log(total/myStudents.length);
+};
+
+// looping over an array, a string you generate 
+// indices
+
+ 
+// NESTED LOOPS
+
+
+let str = 'LOL';
+for (let i = 0; i <= 4; i++){
+  console.log('Outer:', i);
+  for (let j= 0; j < str.length; j++){
+    console.log(' Inner:', str[j]);
+  }
+};
+
+for(let i = 1; i <= 10; i++){
+  console.log('Outer Loop:', i);
+  for (let j = 10; j >= 0; j -= 2) {
+    console.log('   Inner Loop:', j);
+  }
+};
+
+// Don't use same variable within a nested loop 
+// For an index - it is standard to move up from i to j
+// Then k --- avoid nesting or just use two loops
 
