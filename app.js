@@ -667,12 +667,39 @@ if (!user.notifications.length) {
     
 */
 
+
 for(let i = 1; i <= 10; i++) {
   console.log("Hello", i);
-};
+}; 
 
 // it is common to use i++ for incrememnting by 1 
 // you could also use i+=3 to increment by 3 each time
 // the variable or letter i is shown the amount incremented
 // by each time the for loop runs until the final condition
 // is met and is true
+
+for (let number =1; number <= 20; number++) {
+  console.log(`${number}x${number} = ${number * number}`);
+};
+
+// looping from low number to higher number, but
+// can go in the opposite direction
+
+for (let i = 50; i >= 0; i -= 10){
+  console.log(i);
+};
+
+// start i at 50
+// subtract 10 each iteration
+// keep going as low as i >= 0
+
+for(let i = 200; i >= 0; i-=25){
+  console.log(i);
+};
+
+// Wrote in a such a way that it is never true
+// Nothing happens
+// Loops until condition is false
+
+// INFINITE loops
+
