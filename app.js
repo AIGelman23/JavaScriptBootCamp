@@ -944,3 +944,43 @@ console.log(`Congrats you win!!!`);
 // FOR...OF
 // A nice and easy way of iterating over arrays
 // (or other iterable objects)
+
+let subreddits = [ 'soccer', 'popheads', 'cringe', 'books' ];
+for(let i = 0; i< subreddits.length; i++){
+  console.log(subreddits[i]);
+}
+
+// let variable will respresent each element 
+// using the FOR...OF --- sub is going to automatically
+// have each element stored in it -- a lot easier to read
+// -- it is a common scenario to loop over and store
+// elements in an array, but this way it is much easier to read
+
+
+for(let sub of subreddits){
+  console.log(sub);
+};
+
+for (let char of "cockadoodledoo"){
+  console.log(char.toUpperCase());
+};
+
+// the above a lot cleaner and easier to work with 
+// FOR...OF
+// for (variable of iterable) { statement }
+
+const magicSquare = [
+  [ 2, 7, 6 ],
+  [ 9, 5, 1 ],
+  [ 4, 3, 8 ]
+];
+
+for(let i = 0; i < magicSquare.length; i++){
+  let row = magicSquare[i];
+  let sum = 0;
+  for(let j = 0; j < row.length; j++){
+    console.log(row[j]);
+    sum += row[j];
+  }
+  console.log(`${row} summed to ${sum}`);
+};
