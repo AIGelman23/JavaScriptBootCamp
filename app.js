@@ -849,3 +849,98 @@ while (numms < 10) {
   console.log(numms);
   numms++
 };
+
+// 0
+// 1
+// 2
+// 3
+// 4
+
+// while(){
+//
+//}
+
+// while this condition is true run this code 
+// until it is false
+
+let j = 0; 
+while (j <= 5){
+  console.log(j);
+  j++; 
+};
+
+// 0 - true
+// 1 - true
+// 2 - true 
+// 3 - true
+// 4 - true
+// 5 - true
+//   - false
+
+// prefer a for loop when talking about scope
+// it's better practice not to create a variable 
+// outside a loop when possible
+
+// A while loop excels where you are writing a loop and don't
+// know how long you need something to run
+// continue to have game logic loop and game is over
+// it could take 20 or 100 turns
+// 
+// while(stillAlive) { ... } OR while(!stillAlive) { ... }
+// 
+
+// need someway to make it false or break out 
+
+const targetSelection = Math.floor(Math.random() * 10);
+let guessAnswer = Math.floor(Math.random() * 10);
+while(guessAnswer !== targetSelection){
+  console.log(`Target: ${targetSelection} Guess: ${guessAnswer}`);
+  guessAnswer = Math.floor(Math.random() * 10);
+};
+console.log(`Target: ${targetSelection} Guess: ${guessAnswer}`);
+console.log(`Congrats you win!!`);
+
+// while(some condition)
+// in the loop, update or attempt to make the condition
+// false
+// 
+// if we didn't change guess one time then this would 
+// continue to run as an infinite loop forever
+
+// whenever JavaScript encounters break that loop that
+// it is enclosed in is done
+// break;
+
+for(let i = 0; i < 10; i++){
+  console.log(i);
+  if(i === 5){
+    break;
+  }
+};
+
+// if you have nested loops and you break; within 
+// one of these nested loops it does not stop all loops
+// just the current loop that the break; is located in
+// using break we can restructure a while loop for 
+// guessing a random number
+
+const targetTwo = Math.floor(Math.random() * 10);
+let guessTwo = Math.floor(Math.random() * 10);
+while (true) {
+  if(targetTwo === guessTwo) break;
+  console.log(`Target ${targetTwo} Guess: ${guessTwo}`);
+  guessTwo = Math.floor(Math.random() * 10);
+};
+console.log(`Target ${targetTwo} Guess: ${guessTwo}`);
+console.log(`Congrats you win!!!`);
+
+// not a fan of this approach - writing while loop that is
+// while true is not very self-explanatory
+// while(!gameOver) - you can change and use it 
+// in a self-explanatory way
+// break stops a loops execution cold in it's tracks
+
+// NO Internet Explorer Support!!!
+// FOR...OF
+// A nice and easy way of iterating over arrays
+// (or other iterable objects)
