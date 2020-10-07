@@ -1158,3 +1158,26 @@ for(let i = 0; i < 50; i++){
   grumpus();
 };
 
+// we can generate a single dice roll or die roll
+
+  function rollDie() {
+    let roll = Math.floor(Math.random() * 6) + 1;
+    console.log(`Rolled: ${roll}`);
+  };
+  
+  rollDie();
+
+  function throwDice(){
+    rollDie();
+    rollDie();
+    rollDie();
+    rollDie();
+    rollDie();
+    rollDie();
+  };
+
+  throwDice();
+
+  // We can call functions from within other functions
+  // we can call them in loops and or conditions 
+  // pretty much anywhere we need to we can call them
