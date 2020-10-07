@@ -1102,3 +1102,59 @@ for (let k in [88,99,77,66]){
 // for...in on mdn docs its an arbitary order / can
 // change from browser to browser unlike in an 
 // array the item is always set it in stone
+
+// Functions - the last "big topic"
+// Functions are the one topic you must understand
+// to be a great JavaScript developer
+
+// GOALS - 
+// - Write valid functions
+// - Write functions with arguments
+// - Compare function expressions & 
+// function statements
+// Write a bunch of functions!
+
+// Functions reusable procedures 
+// Reusable pocedures
+// - Functions that allow us to write
+//   reusable, modular code
+// - We define a "chunk" of code
+//   that we can then execute at
+//   a later point 
+//  We use them ALL THE TIME
+// 
+// 2 Step Process: 1. Define, 2. Run 
+// You write it and then you run it
+//
+// 
+"hello".toUpperCase(); // every time we call it
+// it runs the built in instructions that are predefined
+// Define a function: 
+// Function Declaration or Function Statement
+//
+// function funcName() { 
+// do something 
+// }
+// What every code we put in the body of the function will 
+// run when we call the function 
+
+function grumpus() {
+  console.log('ugh...you again...');
+  console.log('FOR THE LAST TIME...');
+  console.log('LEAVE ME ALONE!!!');
+};
+
+// The above is the written or defined function 
+// To run the function you have to declare the function
+
+grumpus();
+grumpus();
+grumpus();
+
+// have executed the function 3 times, we can run this
+// in a loop as well
+
+for(let i = 0; i < 50; i++){
+  grumpus();
+};
+
