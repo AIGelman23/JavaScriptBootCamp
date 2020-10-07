@@ -1046,4 +1046,59 @@ for (let movie of Object.keys(movieReviews)) {
 // this works, but if needing to access values
 // we would add console.log(movie, movieReviews[movie])
 
+const ratings = Object.values(movieReviews);
+let totalz = 0;
+for (let r of ratings){
+  totalz += r;
+}
+let avg = totalz /= ratings.length; 
+console.log(avg);
 
+// there is not an easy way to use a for loop to iterate 
+// over an object but a for...in can do exactly what we are doing
+// here
+
+// for (variable in object) {
+// statement
+// }
+
+// loop over the keys or properties in an object
+
+const jeopardyWinnings = {
+  regularPlay: 2522700,
+  watsonChallenge: 300000, 
+  tournamentOfChampions: 50000, 
+  battleOfTheDecades: 100000
+};
+
+for(let prop in jeopardyWinnings){
+  console.log(prop);
+  console.log(jeopardyWinnings[prop]);
+}; // will loop over keys automatically for...of is not iterable
+   // for...in wants an object
+
+// could add variable outside called let total = 0
+// within remove the console.log statements
+// and then use total += jeaporadyWinnings[props];
+// it would loop over the properties or key names 
+// and grab the corresponding values for each of them
+// console.log(`Ken Jennings Total Earnings: ${total}`);
+// technically you can use a for...in for an array 
+// but this gets a bit murky 
+
+for (let k in [88,99,77,66]){
+  console.log(k);
+};
+
+// no matter what values in the array 
+// we are looping over the properties
+// not the values within the array
+// when doing an array it's the exact
+// same thing as looping over an object
+// but we are looping over the keys as indices
+// which is not all that useful
+// since we have a for...of loop that already gives us
+// the values
+// for...in on mdn docs its an arbitary order / can
+// change from browser to browser unlike in an 
+// array the item is always set it in stone
