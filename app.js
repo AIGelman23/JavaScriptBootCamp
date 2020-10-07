@@ -975,6 +975,9 @@ const magicSquare = [
   [ 4, 3, 8 ]
 ];
 
+// all columns and row sums to 15 
+
+/*
 for(let i = 0; i < magicSquare.length; i++){
   let row = magicSquare[i];
   let sum = 0;
@@ -983,4 +986,64 @@ for(let i = 0; i < magicSquare.length; i++){
     sum += row[j];
   }
   console.log(`${row} summed to ${sum}`);
+}; */
+
+// if we want to rewrite with a for...of loop
+
+for(let row of magicSquare){
+  let sum = 0;
+  for(let num of row){
+    sum += num;
+  }
+  console.log(`${row} summed to ${sum}`);
 };
+
+
+/*
+const words1 = [ 'mail', 'milk', 'bath', 'black' ];
+const words2 = [ 'box', 'shake', 'tub', 'berry' ];
+
+for(let i = 0; i < words1.length; i++){
+  console.log(`${words1[i]}${words2[i]`});
+}; */
+
+// for...of is great a lot of the time but if you need
+// to care about the index it wouldn't be a good idea
+// use a traditional for loop instead
+
+const movieReviews = {
+  Arrival: 9.5, 
+  Alien: 9,
+  Amelie: 8, 
+  'In Bruges': 9,
+  Amadeus: 10, 
+  'Kill Bill': 8, 
+  'Little Miss Sunshine': 8.5,
+  Coraline: 7.5
+};
+
+// for..of loops don't work with objects
+// if we want to loops through and print out 
+// each value there wouldn't be a way to use indices 
+// a for loop wouldn't work
+// would a for...of loop work?
+// a for...of loop only works with information that is iterable
+// an object is not iterable
+// we can loop over just they keys and values
+// there is a method for Object.keys and Object.values
+// to be able to accomplish this
+
+/*
+for (let x of movieReviews) {
+  console.log(x);
+}; */ 
+// This doesn't work above
+
+for (let movie of Object.keys(movieReviews)) {
+  console.log(movie, movieReviews[movie]);
+};
+
+// this works, but if needing to access values
+// we would add console.log(movie, movieReviews[movie])
+
+
