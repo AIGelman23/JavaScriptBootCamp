@@ -1181,3 +1181,303 @@ for(let i = 0; i < 50; i++){
   // We can call functions from within other functions
   // we can call them in loops and or conditions 
   // pretty much anywhere we need to we can call them
+
+  // Currently our example of functions don't except any 
+  // Inputs and or Arguments
+
+  // INPUTS --- 
+  // Right now, out simple functions accept zero functions
+  // They behave the same way every time
+
+  // NO INPUTS -- 
+  // grumpus() ----> 
+  // grumpus() ---->
+  // If this is the function we are just calling grumpus 
+  // the same way every single time without a different
+  // output 
+
+  function greet() {
+    console.log('Hi');
+  };
+
+  greet(); 
+
+  // No inputs and same output 
+  // We have no altered the behavior or impacting 
+  // the function in any way but we can 
+  // by passing in an argument
+
+  // With ARGUMENTS we can pass in 'Tim', 'Anya' and 
+  // receive a different output as a result 
+
+  // Another example is 
+  // avg(20,25); ---> 22.5
+  // and or avg(3,2,5,6); ---> 4
+
+  // You can have multiple arguments like avg 
+  // that sums each of the numbers and then sums and
+  // devides them by 4
+
+  // No Inputs ---
+  // "Hello".toUpperCase(); 
+  // Arguments! "hello".indexOf('h'); 
+  //            "hello".indexOf('o');
+  // How do we make our functions expect arguments?
+  // It is simple we can simply add a variable name
+  // that accepts the argument or input 
+  // 
+
+  function greetings(person, nickname) {
+    console.log(nickname);
+    console.log(`Hi, ${person}`);
+  };
+
+  greetings('Ariel', 'Ben');
+
+  // If we passed in a number or an empty array
+  // it will not have any problem
+
+  function throwAgain(numRolls) {
+    for (let i = 0; i < numRolls; i++) {
+    rollDie();
+  }
+};
+
+throwAgain();
+
+// More Functions -- This time with multiple arguments!
+
+function square(num){
+  console.log(num * num);
+}
+
+// Num is not an argument but the real term is called a
+// a parameter (placeholder) 
+//  which is a variable that is called when
+// writing our function 
+// when executing the function where there is body
+// of block of code called it is called an argument
+
+function sum(x, y){
+  console.log(x + y);
+};
+
+// x and y or the order the parameters are situation 
+// doesn't matter
+
+function divide(a, b) {
+  console.log(a / b);
+};
+
+divide();
+
+// In this example we don't have any checks in place
+// To make sure we are only working with numbers
+// We won't focus on this for now
+// The function is type agnostic 
+// If you were to place 5 as the first function 
+// parameter being based, and didn't include a number
+// or did not define a number for b the result
+// would be 5/undefined or NaN
+
+/*
+  Right now our functions aren't returning a value
+  they are printing values out
+  "hello".toUpperCase(); 
+  "HELLO" is displayed only in the console
+  toUpperCase(); does print a value but then 
+  the result is lost forever
+
+  const scream = 'hello'.toUpperCase(); 
+
+  printing something to the console is entirely 
+  different than returning a value and storing 
+  it in memory to be used later 
+
+  return values can be passed to another function, 
+  and or stored in a variable - in the real world
+  we don't print much to the console
+
+  other than debugging we don't typically console.log
+  something
+
+*/
+
+function add(x, y) {
+  // console.log(x + y);
+    return x + y;  // RETURN
+};
+
+add();
+
+const summed = add(10,16); 
+sum; //26
+
+const answer = add(100,200);
+answer; // 300
+
+// We return something from the function 
+// That we can use later
+
+// There are important rules to understanding what
+// you can return from a function: 
+//
+// 1. You can only return 1 thing from a function 
+// or you can't have multiple return statements
+// if you wanted to return both x and y you 
+// could use an array instead of the total
+//
+// ex. return [x,y]
+// or you can return a string where both 
+// x and y are returned inside, but you can't
+// return two separate values
+
+// If you have a RETURN statement in the middle of 
+// your function the code afterwards will NOT execute
+// ex. function square(x) {
+//    return x * x; 
+//    console.log('ALL DONE!);
+//  }
+// try calling this function 
+// i.e. square(4) 
+// 16 will result but there will be nothing else
+// printed to the screen 
+// we could have a 100 lines after this it will never 
+// run. Only if the return statement is executed 
+// this example holds true. 
+
+function isPurple(color){
+  if(color.toLowerCase() === 'purple'){
+    return true;
+    console.log('Yay'); // this console.log will never run
+  }
+  else {
+    return false;
+  }
+};
+
+// there are other ways to improve this function 
+// because of the way return statements work
+// is that they end function execution 
+// there is an easier way to show this
+/*
+
+function isPurple(color) {
+    if(color.toLowerCase() === 'purple'){ 
+      return true;
+    }
+    return false;
+  }
+
+  There is no use of 'else'
+*/
+
+/* 
+
+function isPurple(color) {
+  return color.toLowerCase() === 'purple';
+}
+
+Evaluates first and then returns...
+
+*/
+
+function containsPurple(arr){
+  for(let color of arr) {
+    if(color === 'purple' || color === 'magenta'){
+      return true;
+    }
+  }
+  
+};
+
+// containsPurple(['blue', 'pink', 'magenta']);
+// This element might run once or one-hundred times
+// with no instance of purple or magenta
+// if none of the array returns true then it returns false
+
+// Write a isValidPassword function 
+// It accepts 2 arguments: password and username
+// Password must: 
+// - be at least 8 characters
+// - cannot contain spaces
+// - cannot contain the username
+// If all requirements are met, return true, 
+// Otherwise: false
+
+// isValidPassword('89Fjjlnms', 'dogLuvr'); //true
+// isValidPassword('dogLuvr123!', 'dogLuvr'); //false
+
+
+/* 
+function isValidPassword(password, username){
+ if (password.length >= 8 && password !== username) {
+   
+   return true;
+ } else {
+   
+   return false;
+ }
+};
+*/
+
+function isValidPassword(password, username) {
+  const tooShort = password.length < 8; 
+  const hasSpace = password.indexOf(' ') !== -1; 
+  const tooSimilar = password.indexOf(username) !== -1; 
+  if (tooShort || hasSpace || tooSimilar) return false;
+  return true;
+}
+
+// we want this to be false so we return true 
+// this is inverted 
+
+// could be written 
+// if (!tooShort && !hasSpace && !tooSimilar) return true;
+// return false; 
+
+// Write a function to find the average value in an 
+// array of numbers
+// avg(0,50)) //25
+// avg([75, 76, 80, 95, 100]); //85.2
+
+function avG(newestArr){
+  let totalSum = 0; 
+  
+  for(let num of newestArr){
+    totalSum += num;
+  }
+
+ let res = totalSum / newestArr.length;
+ return res;
+ // loop over each num
+ // add them together
+ // divide by the number of nums 
+}
+
+function anAverage(nArray){
+  let totalSummation = 0; 
+  for(let i = 0; i < nArray.length; i++){
+    totalSummation += nArray[i]/nArray.length
+  }
+  console.log(`${totalSummation}`);
+}
+
+
+
+
+
+
+
+// all columns and row sums to 15 
+
+/*
+for(let i = 0; i < magicSquare.length; i++){
+  let row = magicSquare[i];
+  let sum = 0;
+  for(let j = 0; j < row.length; j++){
+    console.log(row[j]);
+    sum += row[j];
+  }
+  console.log(`${row} summed to ${sum}`);
+}; */
