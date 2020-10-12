@@ -1816,3 +1816,120 @@ const thisThing = {
 
 // We can also pass a function as an argument to 
 // another function or even returning a function
+
+// Functions as ARGUMENTS
+// Higher Order Functions
+// Functions that operate on/with other functions --
+// They can: 
+// - Accept other functions as arguments
+// - Return a function
+
+/*
+function callTwice(func) {
+  func();
+  func();
+}; */
+
+/*
+functin laugh() {
+  console.log("HAHAHAHAHAHAHAHAHAAHAHA");
+} */
+/*
+callTwice(laugh); // pass a function as an arg!
+//"HAHAHAHAHAHAHAHAHAHA"
+//"HAHAHAHAHAHAHAHAHAHA"
+*/
+
+function callThreeTimes(f){
+    f();
+    f();
+    f();
+};
+
+function cry() {
+  console.log("BOO HOO I'M SO SAD!");
+};
+
+// BOO HOO I'M SO SAD!
+// BOO HOO I'M SO SAD!
+// BOO HOO I'M SO SAD!
+
+function rage() {
+  console.log("I HATE EVERYTHING!");
+};
+
+// I HATE EVERYTHING!
+// I HATE EVERYTHING!
+// I HATE EVERYTHING!
+
+function repeatNTimes(action, numR){
+  for(let i = 0; i < numR; i++){
+    action();
+  }
+};
+
+// repeatNTimes(rage, 13);
+
+function pickOne(f1,f2){
+  let rand = Math.random();
+  console.log(rand);
+  if(rand < 0.5){
+    f1();
+  } else {
+    f2();
+  }
+};
+
+// Higher Order Functions
+// Functions that operate on/with other
+// functions. They can: 
+// - Accept other functions as arguments
+// - Return a Function
+
+// Returning Functions
+// Function Factories - the function on the outside
+// are making new versions of a function or tweaking it
+// so that you can use it
+
+function multiplyBy(numX){  // 3
+  return function(x){ // 3
+    return x * numX;  // 3 * 3 = 9
+  }
+}; // This function is a factory for making additional 
+// functions and or modifying them
+
+const triple = multiplyBy(3);   
+const double = multiplyBy(2);
+const halve = multiplyBy(0.5);
+
+/*
+const triple = function (x) {
+  return x * 3;
+};
+
+triple(6); */
+
+
+function makeBetweenFunc(x, y){
+  return function(numY){
+    return numY >= x && numY <= y;
+    }
+  }
+
+const isChild = makeBetweenFunc(0,18);
+
+const isInNineties = makeBetweenFunc(1990, 2000); 
+// has same template of a function, but the x and y 
+
+const isNiceWeather = makeBetweenFunc(60,79);
+
+// three different functions that act differently
+// factory that returns a pattern but all 
+// tweaked to be different
+
+
+isNiceWeather(45);
+
+// CALLBACK FUNCTIONS
+
+
