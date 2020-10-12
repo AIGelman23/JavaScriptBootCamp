@@ -1477,19 +1477,37 @@ function anAverage(nArray) {
   return resTwo;
 };
 
+// many ways of doing this such as using a regular for loop
 
+/* 
+A pangram is a sentence that contains every letter of the alphabet, 
+like: "The quick brown fox jumps over the lazy dog"
 
+Write a function called isPangram, which checks to see if the given
+setence contains every letter of the alphabet. Make sure you ignore
+ignore string casing! 
 
+isPangram('the five boxing wizards jump quickly'); true
+isPangram('The five boxing wizards jump quick'); false
 
-// all columns and row sums to 15 
+*/
 
-/*
-for(let i = 0; i < magicSquare.length; i++){
-  let row = magicSquare[i];
-  let sum = 0;
-  for(let j = 0; j < row.length; j++){
-    console.log(row[j]);
-    sum += row[j];
-  }
-  console.log(`${row} summed to ${sum}`);
-}; */
+// There is such thing as a perfect pangram: 
+// A perfect pangram is a sentence that uses each letter
+// of the alphabet only one time. 
+
+function isPangram(sentence) {
+ let lowerCased = sentence.toLowerCase(); 
+ for (let char of 'abcdefghijklmnopqrstuvwxyz'){
+   if (lowerCased.indexOf(char) === -1) {
+     return false;
+   }
+ }
+  return true;
+};
+
+// Alphabet stored in an array 
+// Function that accepts a sentence
+// sentence transformed into an array
+// compare sentence array to alphabet array
+
