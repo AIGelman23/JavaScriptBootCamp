@@ -1455,15 +1455,27 @@ function avG(newestArr){
  // divide by the number of nums 
 }
 
+/* 
 function anAverage(nArray){
   let totalSummation = 0; 
   for(let i = 0; i < nArray.length; i++){
     totalSummation += nArray[i]/nArray.length
   }
-  console.log(`${totalSummation}`);
+  console.log(`The average is: ${totalSummation}`);
 }
+*/ // my code
 
-
+function anAverage(nArray) {
+  let totalSummation = 0; 
+  //loop over each num
+  for (let numz of nArray) {
+    // add them together
+    totalSummation += numz;
+  }
+  // divide by number of nums
+  let resTwo = totalSummation / nArray.length;
+  return resTwo;
+};
 
 
 
