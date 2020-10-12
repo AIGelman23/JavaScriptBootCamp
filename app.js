@@ -1606,3 +1606,213 @@ console.log(animal);
 */
 
 // animal is scoped to the BLOCK (between curly braces)
+
+
+// if adding or defining i as a variable outside of the 
+// the for...loop it persists outside of the opening and 
+// closing brackets
+let animalArray = ['grizzly bear', 'panda bear', 'black bear'];
+var i = 10; 
+for(var i = 0; i < animalArray.length; i++){
+  console.log(i, animalArray[i]);
+};
+console.log(i); 
+// 'i' still exists outside of the for loop 
+// we have access to it and could be problematic
+// if we had another variable defined as 'i' elsewhere
+// using 'var' to defined a variable isn't blocked scoped
+// var can use the same identifier more than once 
+// while let and const cannot
+
+// [1,3,5]
+// [2,6,10]
+
+function doubleArr(arr){
+  const result = [];
+  for(let num of arr){
+    let double = num *2;
+    result.push(double);
+  }
+  return result;
+};
+
+// const result is scoped to the entire function 
+// because it is not inside the entire block
+// and we have 'let double' which is scoped to 
+// this block for the for...of loop
+// so at the bottom we can still return results
+// if declaring 'let double' within the function
+// you can do this as we are taking double and assigning
+// num * 2; to it within the for...loop
+
+// LEXICAL Scope
+// learning things like react we will have nested functions
+// all the time
+
+function outer() {
+  let movie ="Amadeus";
+
+  function inner(){
+    let movie = "Scoobie Doo";
+    console.log(movie.toUpperCase());
+  } // don't have inner outside of outer unless 
+  // we return the function
+  inner();
+  console.log(x);
+}
+
+// if we define a variable with inner we don't have
+// access to it outside of that function scope
+// if we run outer we can get the variable that 
+// is nested within
+// if we declare movie within outer and within inner
+// the thought process is that it is looking within 
+// the inner function and if not it will use the movie
+// higher up in the nest
+// we go from inner to outer in order of hierarchy 
+
+// if we use things like react later on we might have
+// a component that has different variables
+// ex.
+ function ToDoList(){
+  let todos = [];
+  let username ='';
+  function addTodo(){
+
+  }
+  function removeTodo(){
+
+  }
+  function updateTodo(){
+
+  }
+}
+
+// We group it up into a Component Function 
+// But we have todos and username that are used
+// within the other functions declared within 
+// the Component Function that react needs
+// to re-render or update
+
+
+/* function addSomething() {
+  return
+} */  // example of a function that returns something
+
+/* Function Expressions - There's another syntax
+   we can use to define functions:
+
+  const square = function (num) {
+    return num * num;
+  }
+  square(7);  <---- 49
+
+  This is another way of defining a function - if 
+  we look at this function it is stored within a variable
+  or is a functional expression - it works because in 
+  JavaScript that are stored as objects, we can store functions
+  in an array, and we can even pass
+   
+  See more examples below: 
+*/
+
+function addMore(x, y) {
+  return x + y;
+};
+
+const sumThis = function (x, y) {
+  return x + y;
+}; // works exactly the same way but declared in two
+  // different formats as this is a Function Expression
+  // and there are two different syntaxes
+  // to define a function (are objects that can be stored
+  // in a variable)
+
+  console.dir(sumThis); // will print out the object form
+  // The name of the function and key value pairs will be
+  // seen by using console.dir(); this proves sumThis is an 
+  // object.
+
+/* function (x, y) {
+  return x + y;
+} // This is an anonymous function, we usually pass them 
+ // into another function 
+ */
+
+ const product = function multiply(x, y){
+   return x*y;
+ }; // we can leave off the name multiply if we want
+    // the Function Expression is still called the same
+    // way but through the variable it is assigned to
+
+ // you can use product(3,5) to see 15 as answer
+ // after multiplying, but if you use multiply(3,5)
+ // you will receive an Uncaught ReferenceError for 
+ // multiply not being defined 
+
+ // We are about to see how we are about to see
+ // we pass around functions to other functions
+ // and how we can use them as values and there
+ // is a lot that we can do because functions 
+ // are objects
+
+// Functions Are Objects!!! 
+// We saw store functions in a variable 
+// but we can define functions in an array
+
+function add(x,y) {
+  return x + y;
+};
+
+const subtract = function(x,y){
+  return x-y;
+};
+
+function multiply(x,y){
+  return x * y; 
+}
+
+const divideMe = function (x,y) {
+  return x / y;
+};
+
+const operations = [add, subtract, multiply, divideMe];
+
+// if you use operations[1] you will just return th
+// function (object) from value in the order of the array
+// in which the variable sits
+// however if you use operations[1](100,4);
+// You will be able to utilize that function 
+// same goes for ex.
+// operations[1](100,4);
+// operations[2](100,4);
+// operations[3](100,4);
+// operations[0](100,4);
+
+// We can loop over this array without having to call 
+// a function for instance: 
+// for (let func of operations){
+//  let result = func(30, 5);
+//  console.log(result);
+// };
+// maybe not something you can do but you can 
+// you can loop over functions in an array and 
+// even store functions in an object
+
+const thisThing = {
+  doSomething: multiply // storing the function multiply 
+  // as a value being point to by (doSomething) 
+  // or the key in this object
+};
+// if you type 'thing' into the console window
+// you will have an object within an object that
+// you want to call 
+// ex. 
+//thisThing.doSomething(50,2);
+//this is just like saying 
+// "asdas.toUpperCase()" or some value and setting it toUpperCase
+// OR [1,2,3,4].indexOf(2)
+// 1 would be at index of 1
+
+// We can also pass a function as an argument to 
+// another function or even returning a function
