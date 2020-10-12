@@ -1523,7 +1523,6 @@ function pick(aArray){
   // return random element from aArray
   const idx = Math.floor(Math.random() * aArray.length);
   return aArray[idx];
-
 }
 
 function getCard(){
@@ -1536,8 +1535,74 @@ function getCard(){
   //const valIdx = Math.floor(Math.random() * values.length);
   //const value = values[valIdx];
 
- // const suitIdx = Math.floor(Math.random() * suits.length);
+  //const suitIdx = Math.floor(Math.random() * suits.length);
   //const suit = suits[suitIdx];
   //console.log(value, suit);
   return { value: pick(values), suit: pick(suits) };
+};
+
+// Functions in Detail 
+// Important things you should know about functions
+//
+// GOALS
+// Understand Scope
+// Write Higher Order Functions
+// Pass functions as callbacks
+
+// SCOPE 
+// Variable "visibility"
+// - The location where a variable is defined 
+// dictates where we have access to that variable
+
+function funny(){
+  let person = "Ariel";
+  const age = 33; 
+  var color = 'teal';
+  console.log(age);
+};
+// console.log(person); <-----
+// will receive error because
+// none of the variables exist outside of it's function
+
+function changeColor(){
+  let color = 'purple';
+  const age = 19;
+  console.log(age);
+};
+funny();
+changeColor();
+
+let bird = 'mandarin duck'; // one variable outside function
+function birdWatch() {
+  let bird = 'golden pheasant'; // one variable inside the function
+  console.log(bird);// bird is scoped to function
+};
+birdWatch();
+console.log(bird);
+
+
+// More Scope 
+
+//BLOCK Scope
+
+/*
+let radius = 8;
+if(radius > 0){
+    const PI = 3.14;
+    let circ = 2 * PI * radius;
+}; // PI & circ are scoped to the BLOCK
+
+console.log(radius); //8
+console.log(PI); // NOT DEFINED
+console.log(circ); // NOT DEFINED
+*/
+
+/*
+if(true){
+  let animal = 'eel';
+  // same thing with const animal = 'eel';
 }
+console.log(animal);
+*/
+
+// animal is scoped to the BLOCK (between curly braces)
