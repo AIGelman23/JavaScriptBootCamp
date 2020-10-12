@@ -1499,15 +1499,45 @@ isPangram('The five boxing wizards jump quick'); false
 function isPangram(sentence) {
  let lowerCased = sentence.toLowerCase(); 
  for (let char of 'abcdefghijklmnopqrstuvwxyz'){
-   if (lowerCased.indexOf(char) === -1) {
+   if (!lowerCased.indexOf(char)) {
      return false;
    }
  }
   return true;
 };
 
-// Alphabet stored in an array 
-// Function that accepts a sentence
-// sentence transformed into an array
-// compare sentence array to alphabet array
 
+// Write a getCard() function which returns a random playing
+// card object, like: 
+// {
+//    value: 'K'
+//    suit:: 'clubs'
+// }
+// Pick a random value from: 
+// ----2,3,4,5,6,7,8,9,10,J,Q,K,A
+// Pick a random suit from:
+// ----clubs,spades, hearts, diamonds
+// Return both in an object
+
+function pick(aArray){
+  // return random element from aArray
+  const idx = Math.floor(Math.random() * aArray.length);
+  return aArray[idx];
+
+}
+
+function getCard(){
+  const values = 
+  ['2','3','4','5','6','7','8','9',
+  '10','J','Q','K','A'];
+  //const value = pick(values); 
+  const suits = ['clubs', 'spades', 'hearts', 'diamonds'];
+  //const suit = pick(suits);
+  //const valIdx = Math.floor(Math.random() * values.length);
+  //const value = values[valIdx];
+
+ // const suitIdx = Math.floor(Math.random() * suits.length);
+  //const suit = suits[suitIdx];
+  //console.log(value, suit);
+  return { value: pick(values), suit: pick(suits) };
+}
