@@ -2012,9 +2012,10 @@ var animal = 'Tapir';
 console.log(animal);
 
 // always declare and initialize variables before using them
-
+/*
 console.log(shrimp);
 let shrimp = "Harlequin Shrimp";
+*/
 
 // Uncaught ReferecnceError: Cannot access 'shrimp' before
 // initialization  
@@ -2042,13 +2043,118 @@ function howl() {
 // the function is not (with a function expression)
 // you can't access hoot() before it exists
 
+/*
 hoot();
 var hoot = function () {
   console.log("HOOOO HOOOOO");
 };
+*/
 
 // let and const are best practice to use over var
 // good to be aware of this HOISTING 
 
 // ARRAY CALLBACK METHODS
 // CALLBACKS are central to JavaScript
+
+//Array Callback Methods
+// - Arrays come with many built-in methods that
+// accept callback functions
+// - Now that we've covered callbacks, we can learn
+// these methods!
+// - Super Useful!
+
+// The general idea is that we will run a function 
+// per every element in an array
+// maybe we want to check if every element in an array
+// meets a certain condition?
+
+/* GOALS - use the new arrow functions syntax
+  - Understand and use these methods: 
+. forEach
+. map
+.filter
+.find
+.reduce
+.some
+.every
+*/
+
+// FOREACH - accepts a callback function, Calls the function
+// once per every element in the array
+// ex. 
+
+/*
+const nums = [9,8,7,6,5,4,3,2,1];
+
+nums.forEach(function (n) {
+  console.log(n * n); 
+  // prints: 81, 64, 49, 36, 25, 16, 9, 4, 1
+});
+
+nums.forEach(function (el) {
+  if (el % 2 === 0) {
+    console.log(el)
+    // prints: 8, 6, 4, 2
+  }
+});
+*/
+
+
+// using one time anonymous functions 
+// the goal of foreach is that it passes 
+// each value into that function 
+
+numbers.forEach(function(num, idx){
+  console.log(idx, num);
+}); // we can use a second parameter to use the index
+
+const numz = [20, 21, 22, 23, 24, 25, 26, 27];
+
+numz.forEach(function (num) {
+  console.log(num * 2);
+});
+
+function printTriple(n) {
+  console.log(n * 3);
+};
+
+numz.forEach(printTriple);
+
+const books = [ {
+  title: 'Good Omens',
+  authors: ['Terry Pratchett', 'Neil Gaiman'], 
+  rating: 4.5
+}, 
+{
+  title: 'Bone: The Complete Edition',
+  authors: ['Jeff Smith'],
+  rating: 4.42
+}, 
+{
+  title: 'A Gentleman in Moscow', 
+  authors: ['Amor Towles'],
+  rating: 4.36
+  }
+];
+
+// Want to print each title using foreach
+
+books.forEach(function(book) {
+  console.log(book.title.toUpperCase());
+});
+
+// We can do the exact same thing using a for...of loop
+
+for (let book of books) {
+  console.log(book.title.toUpperCase())
+};
+
+// one is a function and the other is a code block
+// with a for...loop
+
+for (let i = 0; i < books.length; i++) {
+  console.log(books[i].title.toUpperCase())
+};
+
+
+
