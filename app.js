@@ -1931,5 +1931,124 @@ const isNiceWeather = makeBetweenFunc(60,79);
 isNiceWeather(45);
 
 // CALLBACK FUNCTIONS
+//
+// A callback function is a function passed
+// into another function as an argument, which
+// is invoked inside the outer function
 
+/*
+  function callTwice(func) {
+    func(); 
+    func();
+  };
 
+  function laugh() {
+    console.log("HAHAHAHAHHAHAHAHA"; )
+  }
+  callTwice(laugh); // pass a function as an arg!
+  // Laugh is the callback function - they are extremely 
+  // common in JavaScript
+  //"HAHAHAHAHAHAHAHAHA!"
+  //"HAHAHAHAHAHAHAHAHA!"
+*/
+
+// If you want to make request to load data from 
+// facebook's api - that request takes time
+// we pass in a call back function when the request
+// is finished or when the data is sent back
+
+// Often we use anonymous functions when we call them
+// other than a stand-alone or existing function
+
+//function grumpus(){
+//alert("GAHHHH GO AWAY!");
+//};
+
+// setTimeout(func, 5000); // will run a certain block of code after
+// a certain number of milliseconds and how long to wait
+// before it runs
+// if we want it to go away after 5 milliseconds we 
+// can simply pass in grumpus as the function argument
+
+// setTimeout(grumpus, 5000);
+
+setTimeout(function(){
+  alert("WELCOME!");
+}, 5000);
+
+// inline anonymous expression
+
+const btn = document.querySelector('button');
+btn.addEventListener('click', function () {
+  alert("Why did you click me?");
+});
+
+// if you only need to use a function one time
+// just pass it in as an anyonmous function 
+// this is such a common thing that there is 
+// even a short syntax for this
+
+/*
+  HOISTING - something I need to cover that you shouldn't
+  stress about if it confuses you.
+
+  Not crucial if having trouble understand -- what
+  do you think happens if we have a variable and 
+  set it equal to a string value and console.log
+  that variable, but what if we switch that order 
+  up and try to print that animal first - we get undefined
+  console.log(animal); for instance is undefined or doesn't
+  exist.
+
+  var x; and don't give a value it is considered undefined
+
+  When JavaScript is HOISTING it runs var animal and then 
+  console.log(animal); and then finally animal is set to 'Tapir'
+*/
+
+var animal;
+console.log(animal);
+var animal = 'Tapir';
+console.log(animal);
+
+// always declare and initialize variables before using them
+
+console.log(shrimp);
+let shrimp = "Harlequin Shrimp";
+
+// Uncaught ReferecnceError: Cannot access 'shrimp' before
+// initialization  
+// when declaring variable with let we can't access ot 
+// before this variable exists and we wouldn't want this
+// to happen unlike when using var and declaring a variable
+// JavaScript knows it exists already
+// Let and Const are not HOISTED
+
+// If we write a function declaration like: 
+
+howl();
+
+function howl() {
+  console.log("AWOOOOOOOOO");
+};
+
+// function declarations are HOISTED and are not actually
+// happening but are processing these lines first
+// if we instead run an function using a function expression
+// this will not work (the variable hoot does exist however)
+// but it is not considered a function or it is undefined
+// or doesn't know the value
+// you can't call undefined, the variable is hoisted
+// the function is not (with a function expression)
+// you can't access hoot() before it exists
+
+hoot();
+var hoot = function () {
+  console.log("HOOOO HOOOOO");
+};
+
+// let and const are best practice to use over var
+// good to be aware of this HOISTING 
+
+// ARRAY CALLBACK METHODS
+// CALLBACKS are central to JavaScript
