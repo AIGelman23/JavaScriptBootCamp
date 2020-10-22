@@ -2156,5 +2156,61 @@ for (let i = 0; i < books.length; i++) {
   console.log(books[i].title.toUpperCase())
 };
 
+// MAP - creates a new array with the results
+// of calling a callback on every element in
+// in the array 
 
+const texts = ['rofl', 'lol', 'omg', 'ttyl'];
+const caps = texts.map(function (t) {
+  return t.toUpperCase();
+});
+texts; // ['rofl', 'lol', 'omg', 'ttyl'];
+caps; // newly mapped array 
+      // ['ROFL', 'LOL', 'OMG', 'TTYL'];
 
+// Doesn't alter texts but maps to new array
+
+//const numbers = [20, 21, 22, 23, 24, 25, 26, 27];
+//const words = ['asap', 'byob', 'rsvp', 'diy'];
+
+//const doubles = numbers.map(function(num) {
+ // return num * 2;
+// });
+
+// If we don't return something, it is an array 
+// of undefines --- when a function returns nothing
+// it creates 8 undefines as in this example
+
+/*
+const numDetail = numbers.map(function(n){
+  return {
+    value: n, 
+    isEven: n % 2 === 0
+  }
+});
+
+const doubles2 = [];
+for(let num of numbers) {
+  doubles2.push(num*2);
+}; */
+
+/// Map pushes numbers into array automatically
+// Map is useful when combining to other methods
+// Using a for...loop is usually not easier
+
+const words = ['asap', 'byob', 'rsvp', 'diy'];
+
+const abbrevs = words.map(function(word){
+  return word.toUpperCase().split('').join('.');
+});
+
+// We could have a slightly more complex data structure with 
+// a books array and we wanted to isolate the author 
+
+/*
+const titles = books.map(function(b){
+  return b.title;
+}); */
+
+// create a new array based off of prev. array and creating
+// a new version of an array 
