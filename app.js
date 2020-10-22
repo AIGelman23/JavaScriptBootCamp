@@ -2214,3 +2214,52 @@ const titles = books.map(function(b){
 
 // create a new array based off of prev. array and creating
 // a new version of an array 
+
+// Arrow Functions - "syntactically compact alternative"
+// to a regular function expression 
+
+// ex. 
+// 
+// const square = (x) => {
+//  return x * x;
+// };
+//
+// const sum = (x, y) => {
+//  return x + y;
+// };
+
+// Internet Explorer doesn't support Arrow Functions
+// If doesn't work will be transformed into code that
+// does work in IE
+
+// Arrow Functions don't require function keyword
+
+/*
+const square = function(x){
+  return x * x; 
+}; */
+
+const square = (x) => {
+  return x * x;
+};
+
+// Arrow Functions weren't exclusively added for simplicity
+// but were meant to be used with the this keywod
+
+const isEven = (num) => {
+  return num % 2 === 0;
+};
+
+const multiply = (x,y) => {
+  return x * y; 
+};
+
+// If we only have one parameter we can leave the parenthesis 
+// off, but only when we have one parameter
+// With more than one parameter we must have those parenthesis 
+
+const greet = () => {
+  console.log('Hi!');
+};  // we must leave parenthesis without a parameter when using arrow
+    // function 
+
