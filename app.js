@@ -2239,9 +2239,9 @@ const square = function(x){
   return x * x; 
 }; */
 
-const square = (x) => {
-  return x * x;
-};
+// const square = (x) => {
+//   return x * x;
+// };
 
 // Arrow Functions weren't exclusively added for simplicity
 // but were meant to be used with the this keywod
@@ -2250,16 +2250,75 @@ const isEven = (num) => {
   return num % 2 === 0;
 };
 
-const multiply = (x,y) => {
-  return x * y; 
-};
+//const multiply = (x,y) => {
+//  return x * y; 
+//};
 
 // If we only have one parameter we can leave the parenthesis 
 // off, but only when we have one parameter
 // With more than one parameter we must have those parenthesis 
 
-const greet = () => {
-  console.log('Hi!');
-};  // we must leave parenthesis without a parameter when using arrow
+//const greet = () => {
+//  console.log('Hi!');
+//};  // we must leave parenthesis without a parameter when using arrow
     // function 
 
+/* 
+Implicit Return 
+All these functions do the same thing: 
+
+const isEven = function (num) { // regular function expression
+  return num % 2 === 0;
+}
+const isEven = (num) => { // arrow function with parens around param
+  return num % 2 === 0; 
+}
+const isEven = num => {
+  return num % 2 === 0;arrow function no  parens around param
+}
+const isEven = num => {
+  num % 2 === 0;  //implicit return 
+}
+const isEven = num => num % 2 === 0; //one-liner implicit return 
+*/
+
+/*
+const square = n => {
+  return n * n; // returning an expression 
+};
+
+const square = n => (
+  n * n
+); // parens are making sure that the define logic between  is the expression
+
+const square = n => n * n; 
+
+const nums = [1,2,3,4,5,6,7,8];
+
+const doubles1 = num.map(function (n) {
+  return n * 2; 
+});
+
+const doubles2 = nums.map(n => {
+  return n * 2;
+});
+
+const doubles3 = nums.map(n => n * 2); */
+
+/*
+const parityList = nums.map(function(n){
+  if(n % 2 === 0) return 'even';
+  return 'odd';
+});
+
+const parityList = nums.map((n) => {
+  if (n % 2 === 0) return 'even';
+  return 'odd';
+});
+
+const parityList = nums.map((n) => (
+  n % 2 === 0 ? 'even': 'odd'
+)); */
+
+const parityList = nums.map((n) => n % 2 === 0 ? 'even' : 'odd');
+// one line
