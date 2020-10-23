@@ -2322,3 +2322,62 @@ const parityList = nums.map((n) => (
 
 const parityList = nums.map((n) => n % 2 === 0 ? 'even' : 'odd');
 // one line
+
+// arrow functions are a replacement that is more compact
+// don't have to right function, optional parenthesis, and
+// then arow and return something or implicit return 
+// and have a single expression in the body of the function
+// still must be single expression no matter what
+// for this to work
+
+/*
+FIND - returns the value of the first element in the 
+array that satisfies the provided testing function
+*/
+
+let movies = [
+  "The Fantastic Mr. Fox",
+  "Mr. and Mrs. Smith",
+  "Mrs. Doubtfire",
+  "Mr. Deeds"
+];
+
+let movie = movies.find(movie => {
+  return movie.includes('Mrs.');
+});
+
+let movie2 = movies.find(m => m.indexOf('Mrs.') === 0);
+
+// if we want to find the first movie that has mrs. in it
+
+// the first time a given element is found to be true 
+// or matches the string within includes within the array
+// it returns that result and then the function is done
+
+const goodBook = books.find(b => b.rating >= 4.3)
+const neilBook = books.find(b => (
+  b.authors.includes('Neil Gaiman')
+  ))
+
+// a list of posts individual wants to delete - it will
+// call a function with that post's id 
+// deletePost(2) 
+// posts.find( p => p.id === 2)
+// only gives us the first match when using find
+
+// FILTER - Creates a new array with all elements that
+// pass the test implemented by the provided function
+
+/*
+
+const nums = [9,8,7,6,5,4,3,2,1];
+const odds = nums.filter(n => {
+  return n % 2 === 1; // our callback returns true or false 
+  // if it returns true, n is added to the filtered array
+})
+// [9,7,5,3,1]
+// const smallNums = nums.filter(n => n < 5);
+// [4,3,2,1]
+
+
+*/
