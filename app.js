@@ -2379,5 +2379,62 @@ const odds = nums.filter(n => {
 // const smallNums = nums.filter(n => n < 5);
 // [4,3,2,1]
 
+const nums = [34, 35, 67, 54, 109, 102, 32, 9];
+
+const odds = nums.filter(n => n % 2 === 1);
+const evens = nums.filter(n => n % 2 === 0);
+
+const bigNums = num.filter(n => n > 50);
+
+// if the number is true it gets added
+// into the result we get otherwise it's ignored
+
+// sometimes we want to help the user narrow 
+// down results and with filter() we can do that
+// rating, genre as an ex.
+
+const goodBooks = book.filter(b => b.rating > 4.3);
+
+// we would grab highest rated books
+
+// if we wanted to filter where genre is only fantasy books
+
+const fantasyBooks = books.filter(book => (
+  book.genres.includes('fantasy');
+));
+
+const shortForm = books.filter(book => (
+  book.genres.includes('short stories') ||
+  books.genres.includes('essays')
+))
+
+// ecommerce sites you can filter by rating, 
+
+const query = 'The'; 
+const results = books.filter(book => {
+  const title = books.title.toLowerCase()
+  return .includes(query.toLowerCase());
+});
+
+// filter is used in many applications to narrow
+// down a selection
+
+// EVERY - Tests whether all elements in the array
+// pass the provided function. It returns a Boolean
+// value. 
+// If returned as true than the whole method or function
+// is true - a way of verifying whether each element
+// in the array have 3 letters and or does each 
+// element end with the letter g
+
+const words = ["dog", "dig", "log", "bag", "wag"];
+
+const all3Lets = words.every(word => word.length === 3);
+
+// has to return true for every single element 
+// for the whole function or every to return true
+
+
 
 */
+
