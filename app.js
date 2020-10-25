@@ -2735,3 +2735,170 @@ const groupedByRatings = books.reduce((groupedBooks, book) => {
 // It boils down to taking multiple elements of an array
 // and turning them into one result
 // tally, grouping, max or min, sum, by string etc
+
+// NEW-ISH FEATURES
+// -- Rest & Spread
+// -- Destructuring
+// -- Default Function Params
+// Object Enhancements
+// Classes
+// Async Functions
+
+// DEFAULT PARAMS - The Old Way 
+
+// function multiply(x,y) {
+//  return x * y;
+// }
+//
+// if not specifying when in console 
+// multiply (4) you get NaN 
+// 
+// function multiply(x,y) {
+// if (typeof y === 'undefined') {
+//  y = 1;
+//    }
+// }
+//
+//
+// function multiply(x, y) {
+//  y = typeof y === 'undefined' ? 1 : y
+//  return x * y;
+// }
+// 
+// 
+// DEFAULT PARAMS - NEW WAY
+//
+// function multiply(a, b = 1) {
+//    return a * b;  
+// }
+//
+// multiply(4);  // 4
+// multiply(4, 5); // 20
+
+// b will default to 1 if a value is not passed
+// in to the parameter for b 
+//
+//
+// function multiply(x, y = 1) {
+//  return x * y;
+// };
+
+const greetz = (person, greeting = 'hi') => {
+  console.log(`${greeting}, ${person}!`);
+};
+
+// another example with a string as a default
+// value
+
+const blah = (x,y=[1,2,3]) => {
+  console.log(x, y);
+};
+
+// another example with an array 
+//
+// javascript knows which values
+// are the default values based
+// on the order you pass them in
+// to the function call
+// default parameters should 
+// come at the end
+// the newer way 
+// is better than checking for 
+// a specific type with typeof
+
+// SPREAD - 
+// not supported in IE, but 
+// shouldn't stop from using
+// 
+// Spread - Spread syntax allows
+// an iterable such as an array to be
+// EXPANDED in places where zero or
+// more arguments (for function calls)
+// or elements (for array literals) are 
+// expected, or an object expression 
+// to be expanded in places where zero
+// or more key-value pairs 
+// (for object literals) are expected
+// 
+// above the MDN definition
+//
+// 
+//
+// Spread for Function Calls
+// 
+// Expands an iterable
+// (array, string, etc)
+// into a list of arguments
+//
+// const nums = [9, 3, 2, 8];
+// Math.max(nums); //NaN
+// Use Spread; 
+// Math.max(...nums); //67
+// Same as calling; 
+// Math.max(9,3,2,8);
+//
+//
+// const nums = [45,23,34,7,5]
+// undefined and Math.max(nums) NaN
+// spread operator 
+// Math.max(...nums)
+// spreading iterable into individual
+// arguments
+// Math.max(45,34,34,7,5)
+// 45
+function giveMeFour(a, b, c, d) {
+  console.log('a', a);
+  console.log('b', b);
+  console.log('c', c);
+  console.log('d', d);
+};
+
+const colorz = ['red', 'orange', 'yellow', 'green'];
+
+/*
+
+giveMeFour(colorz)
+a (4) ["red", "orange", "yellow", "green"]
+b undefined
+c undefined
+d undefined
+undefined
+giveMeFour(...colorz)
+a red
+b orange
+c yellow
+d green
+
+if we had 10 colors 
+we would still be passing them
+or spreading them they just
+wouldn't be used in the 
+function
+
+soon we will see how to write
+a function that accepts any number
+of arguments - right now 
+we have to hard code the number
+of arguments we want
+
+spread isn't only applicable to arrays
+but if we have a string
+
+const str = 'GOAT'; 
+
+because a string is an iterable
+it would pass each character over
+as an argument
+a G
+b O
+c A
+d T
+
+not common to spreadh characters
+as much as arrays
+
+each element is spread as a separate 
+standalone argument with the spread
+operator
+
+*/
