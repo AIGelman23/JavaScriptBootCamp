@@ -2564,6 +2564,174 @@ const descSort = prices.sort((a,b) => b - a);
 // sum or value and continue this process until
 // all values are summed in the array 
 
+// const nums = [3,4,5,6,7];
+// const product = nums.reduce((total, currentVal) => {
+// return total * currentVal;
+// });
 
+// total          currentVal
+// 3              4
+// return 12 (reduce remembers the prev return value)
+// uses 12 as total the next time through
+// 12             5
+// 60             6
+// 360            7
+// 2520 
+//
+// We are reducing down to total or persists
+// think about it has having a memory through 
+// this whole cycle 
+// we saw how we can sum and now we will see some more
+// advanced use cases
+//
+// REDUCE PRT 2.
+//
+// Finding Max Val in an array where the accumulator
+// is just tracking the max or simply referring to the
+// current max value
+//
+// const grades = [87, 64, 96, 92, 8, 99, 73, 70, 64];
+//
+// const maxGrade = grades.reduces((max, currVal) => {
+//  if(currVal > max) return currVal;
+//  return max;    
+// });
 
+// Max starts at 87 and currentVal 
+// 
+// max      currVal      return
+// 87       64           87 (because this is false)
+// 87       96           96 (because true or greater)
+// 96       92           96 (because this is false)
+// 
+// we eventually go through the entire array 
+// and return 99 as the highest value
+//
+// we could technically replace the original code
+// and say 
+// ex. 
+// 
+// const maxGrade = grades.reduce((max, currVal) => {
+//    return Math.max(max, currVal);
+// });
+//
+// can also do this for the lowest grade
+//
+// const minGrade = grades.reduce((min, currVal) => {
+//    return Max.min(min, currVal);
+// });
+// 
+// We could even use an implicit return 
+// since we have a single number being returned
+//
+// const minGrade = grades.reduce(min, currVal) => (
+//     Math.min(min, currVal);
+//));
+//
+// accumulator makes things of growing or summing
+// but that's not what is happening here
+// it's just keeping tack of the max in this example
+//
+// When using reduce you can even pass in an initial 
+// starting value 
 
+// arr.reduce(callback, initialValue)
+// callback ends up usually being an inline anyonmous function
+//
+// [10,20,30,40,50].reduce((sum, currVal) => {
+//    return sum + currVal; // 150
+// })
+//
+// when we don't specify an initial value it will
+// just use the initial value
+// but we can start with a custom value
+// for ex. by passing in 0 or 1000, then will add the values
+//
+// [10,20,30,40,50].reduce((sum, currVal) => {
+//    return sum + currVal;
+// }, 0)
+//
+// there are other use cases to specify an initial value
+// like an object to accumulate data into an object
+// you can use reduce not just to multiply or sum things
+// but we can grab the longest, string, the highest number
+// in an array
+// 
+// the first argument ---> 
+// .reduce((sum, currVal) => {
+//   return sum + SVGPathSegCurvetoQuadraticRel;
+// }, 1000);
+// 
+// the second argument ---> 
+// is the 1000
+// 
+// TALLYING 
+//
+// 
+const votes = 
+['y', 'y', 'n', 'y', 'n', 'y', 'n'];
+const tally = votes.reduce((tally, vote) => {
+  tally[vote] = (tally[vote] || 0) + 1;
+  return tally;
+}, {}); // INITIAL VALUE: {}
+
+tally; // {y: 7, n: 6}
+//
+// we are going to use reduce to produce an object
+// and count the number of yes and no answers
+// for votes and add them as a key and value
+// 
+// we initially use an empty object 
+// if we encounter y we will check if there is one
+// and if so set it + 1 or to 1 and keep that tally
+// 
+// const results = votes.reduce((tally, val) => {
+// if (tally[val]) {
+//  tally[val]++
+// } else {
+//  tally[val] = 1;
+// }
+// return tally;
+//}, {})
+//
+//
+// {}
+// {y: 1}
+// {y: 2}
+//
+//
+//
+// const results = votes.reduce((tally, val) => {
+// tally[val] = (tally[val] || 0) + 1;
+// return tally;  
+// }, {})
+//
+// tally of val or tally[val] is undefined
+// doesn't exist and or if there is a value
+// normally starting at 0 (add 1) or increment
+// by 1 to add a tally mark and keep track
+// 
+// {y:1}
+//
+//
+
+const groupedByRatings = books.reduce((groupedBooks, book) => {
+  const key = Math.floor(book.rating);
+  if(!groupedBooks[key]) groupedBooks[key] = [];
+  groupedBooks[key].push(book)
+  return groupedBooks;
+}, {});
+
+// get the rating of the book and chop the decimal off
+// now set the key to 4 (rating) and then check 
+// is there a key of 4 in the array of books
+// and if not set the empty object to 
+// to have a key of 4 with an empty array {4: []}
+// and then take the groupBooks[4] with a rating of 4
+// and push that book into the array with a key or
+// rating of 4
+// {4: [book1, book2]}
+//
+// It boils down to taking multiple elements of an array
+// and turning them into one result
+// tally, grouping, max or min, sum, by string etc
