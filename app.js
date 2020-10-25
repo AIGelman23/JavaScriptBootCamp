@@ -2457,11 +2457,113 @@ words.every(word => {
   //Do any words contain 'cake'
   words.some(w => w.includes('cake')); //true
 
-  
+  const allGoodBooks = books.every(book => book.rating > 3.5);
+
+  const any2Authors = books.some(book => book.authors.length === 2);
+
 
 
 
 */
 
+// SORT 
+const prices = [400.5, 3000, 99.99, 35.99, 12.00, 9500];
+
+// The default of SORT function 
+// is to convert all the numbers in the prices
+// array to strings
+
+// prices.sort();
+
+// we can customize the behavior of sort
+
+// SORT PRT .2 
+// arr.sort(compareFunc(a,b))
+/* 
+  - If compareFunc(a,b) returns less than 0 
+    Sort a before b
+  - If compareFunc(a,b) returns 0 
+    Leave a and b unchanged with respect to each other
+  - If compareFunc(a,b) returns greater than 0 
+    Sort b before a
 */
+
+const ascSort  = prices.sort((a,b) => a - b);
+const descSort = prices.sort((a,b) => b - a);
+
+// a      b 
+// 1000 4000
+// 4000 - 1000 = a positive number 
+// would sort the elements in decending order
+// versus 1000 - 4000 = a negative number
+// would sort the elements in an ascending order
+//
+// if we look at the original array prices[]
+// everything will have been mutated
+// sorting does mutate the original array
+//
+// if we wanted to make a comparison between
+// prices from one array and another 
+// we could use slice
+// ex. 
+//
+// prices.slice().sort((a,b) => a - b);
+// prices.slice().sort((a,b) => b - a);
+//
+// introducing badSort = prices.slice().sort();
+// each variable now isn't connected to original prices
+// ex. ascSort, descSort, and badSort - have different
+// data, but not the same references in memory
+// 
+// rather than sorting a single array of numbers
+// we might use an array of objects such as books
+// 
+// books.sort((a,b) => a-b); 
+// We can't run one object minus another object
+//
+// What we can do is 
+// ex.
+// 
+// books.sort((a,b) => a.rating - b.rating);
+// or 
+// books.sort((a,b) => b.rating - a.rating);
+// 
+// can also write a sort based on ratings and genres
+// or a more complicated sort
+// 
+// comparing a string is fine, but to compare or sort 
+// numbers you must use the compareFunc(a,b) as an 
+// example and return a number 
+// if it is a negative number one thing happens
+// if it is a positive number another thing happens
+//
+//
+// REDUCE - is useful and can be used in many ways
+// most practice to get good with it
+// 
+// REDUCE - executes a reducer function on each element
+// of the array resulting in a single value
+//
+// applications for REDUCE including summing an array
+// [3,5,7,9,11].reduce((accumulator, currentValue) => {
+//    return accumulator + currentValue; 
+// });
+//
+// It's not not always about multiplying, summing, or 
+// accumulating into a single value or number
+// it could be finding the maximum value in an array
+// it could be tallying votes in an array or object
+// we will start with basics with summing every element
+// in an array
+//
+// the accumulator variable is going to start as the current
+// value in the array and add it to the next value
+// or element and that returns a value and that
+// is used as accumulator in the next function call 
+// and add that to the next number and return that
+// sum or value and continue this process until
+// all values are summed in the array 
+
+
+
 
