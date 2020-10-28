@@ -3513,4 +3513,112 @@ function sayHi(){
 // within an object
 // will start to make sense as pieces come together
 
+/*
+const person = {
+  first: 'Cherilyn', 
+  last: 'Sarkisian', 
+  nickName: 'Cher', 
+  fullName() {
+    console.log(this);
+  }
+};
+*/
+
+// This time it is not console.logging the window
+// this refers to the person object itself 
+// or the object that the fullName(){} object is set to
+// Why do we care about the current object we are inside
+// of? Because it allows us to reference properties and
+// or other methods. We can have a method that is aware
+// of it's other contents in it's object
+// 
+// So for fullName if we want firstName and lastName together
+// 
+
+/*
+const person = {
+  first: 'Cherilyn', 
+  last: 'Sarkisian', 
+  nickName: 'Cher', 
+  fullName() {
+    console.log(this.first); // prints out Cherilyn 
+    // or points to the property for the key first: which
+    // is 'Cherylin'
+    // we could therefore replace console.log(this.first);
+    // with console.log(`${this.first} ${this.last} AKA ${this.nickName}`)
+    // furthermore we can destructure 
+    // using const {first, last, nickName} = this; and 
+    // we would still get the same result
+    // if changing console.log to ${first} ${last} AKA ${nickName}
+    // you can reassign the nickName 
+    // person.nickName = "CHERRRR
+    // now we can right a method which is aware of the method
+    // that it lives in and or it's properties
+    // we can interact with these values, properties, and or methods
+    // it is now a self-contained world
+  }
+};
+*/
+
+// we could add another method to the object
+//
+// }, printBio() {
+//  this.fullName() // we must use this to reference the object
+// consoel.log(`${fullName} is a person`);
+// we called a method within this object and accessed it's properties
+// and the value of this in both methods refers to the object
+// that they live in
+// }';
+//
+
+// THIS IN METHODS - use the keyword this to reference 
+// properties in objects
+
+// The value of 'this' depends on the invocation context 
+// of the function it is used in
+
+// this used inside an object is used to access the 
+// parent method, but this isn't always the case
+// it will depend on the function method is 
+// called or executed
+// 
+// 'this' is what is setting the value of 'this' 
+// the way I am setting or invoking 
+//
+// we can change the value of 'this' 
+//
+// const printBio = person.printBio; 
+// 
+// made a variable pointing to printBio
+// 
+// if there is something to left and then 
+// a dot or '.' and executing a function 
+// such as person.printBio; it will 
+// show this to be only the scope of that
+// method rather than the window
+//
+// const printBio = person.printBio;
+//
+// there are three special methods call, apply, and 
+// bind that can change the context on how you use 'this'
+// also prototypes will apply 'this' differently
+
+// when we write an arrow function and a regular function
+// it doesn't get it's own version of this
+// the value of 'this' isn't going to be changed
+
+// laugh: () => {
+//  console.log(this);
+//  console.log(`${this.nickName}` says HAHAHAHAHAHA`);
+// }
+
+// the value of this is set to window in the example above
+// versus printBio which is set to the object or parent object
+// it is contained in rather than the window
+// arrow functions aren't generally used
+// within objects that have methods because of this
+// we just want access to the specific properties
+// contained within that object
+
+// Execution or way of invoking 'this' really matters
 
