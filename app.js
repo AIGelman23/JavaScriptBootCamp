@@ -3251,3 +3251,158 @@ function parseResponse([protocol, statusCode, contentType]){
 // unpacking all three elements from an array
 // based off of the position in the array or index
 
+// OBJECT METHODS and the 'This' Keyword
+// GOALS - 
+// - Add methods to objects
+// - Use new object shorthand syntax
+// - Use computed properties
+// - Understand prototypes
+// - Explain how this works together
+
+// SHORTHAND PROPERTIES
+// Not supported in IE 
+
+const getStats = (arr) => {
+  const max = Math.max(...reviews);
+  const min = Math.min(...reviews);
+  const sum = reviews.reduce((sum, r) => sum + r);
+  const avg = sum / reviews.length;
+ // return {
+ //   max: max, 
+  //  min: min, 
+ //   sum: sum, 
+  //  avg: avg
+ // }
+  return {
+    max, 
+    min, 
+    sum, 
+    avg
+  } // don't have to duplicate the key and the value
+}
+
+const reviews [4.5, 5.0, 3.44, 2.8, 3.5, 4.0, 3.5];
+
+const stats = getStats(reviews);
+
+// COMPUTER PROPERTIES
+
+const role = 'host';
+const person = 'Jools Holland';
+const role2 = 'Director';
+const person2 = 'James Cameron';
+
+//const team = {
+//  role: person
+// };
+
+const team = {};
+team[role] = person;
+team[role2] = person2;
+
+// const user = 'Jools';
+//
+// const userRoles = {
+//  [user]: 'Admin' 
+// }
+// userRoles;
+//
+// We can use a variable as a key name in an object
+// literal property!
+// Here the user will be evaluated first as user and 
+// then set to Admin
+
+const team = {
+  [role]: person, 
+  [role2]: person2
+  [1 + 6 + 9]: "sixteen"
+};
+
+// Don't have to make an empty object and then
+// add each value to it - instead can do this altogether
+
+function addProp(obj, k, v){
+  const copy = {...obj}; // had to make an object 
+  copy[k] = v;  // add in the dynamic key and set the value
+  return copy;  // then return the copy
+};
+
+// versus
+
+function addProp = (obj, k, v) => {
+  return {
+    ...obj,
+    [k]: v
+  }
+};
+
+
+const res = addProp(team, 'happy, ':)');
+
+// When creating a function that return objects
+// or computer properties - these are good examples
+// we can also write the function implicitly with
+// out the return statement
+// when we have an object we are implicitly returning
+// we must have the parenthesis around the curly brackets
+
+// METHODS - 
+// we can add function as properties on objects
+// we call them methods
+
+const math = {
+  multiply: function(x,y) {
+    return x * y;
+  }, 
+  divide: function(x,y) {
+    return x / y;
+  }, 
+  square: function(x) {
+    return x * x;
+  }
+};
+
+// We can use Methods to group functions together
+// and it is a nice organizational structure
+
+"hello".toUpperCase(); 
+
+// this is a method above
+
+const add = function(x,y) {
+  return x + y;
+};
+
+// above is function but when adding the
+// .add() notation this is a method
+
+/* 
+  const add = function (x, y) {
+    retrun x * y; 
+  }
+
+  const math = {
+    add
+  }
+
+  can use math.add(2,3)
+  we are referencing the same function in memory
+  but accessing it it in a different way
+
+  normally you'd do the following:
+
+  const math = {
+    add: function (x,y){
+      return x + y;
+    }
+  }
+
+  Would access and add by 
+
+  math.add(1, 2);
+  math.add just references the object method or function
+
+  When adding a function as a property inside in object
+  to a key value it is known as a method!
+
+*/
