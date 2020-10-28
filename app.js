@@ -3406,3 +3406,111 @@ const add = function(x,y) {
   to a key value it is known as a method!
 
 */
+
+// You can use an arrow function with methods
+// and now there is a nice SHORTHAND option 
+// to perform the same tasks for methods
+
+/*
+  const math = {
+    blah: "Hi!", 
+    add(x, y) {
+      return x + y;
+    }, 
+    multiply(x, y){
+      return x * y;
+    }
+  }
+  math.add(50, 60) //110
+*/
+
+/*
+const auth = {
+  username: 'TommyBot'
+  login() {
+    console.log("LOGGED YOU IN!");
+  }, 
+  logout() {
+    console.log("GOODBYE");
+  }
+}; */
+
+// Uses the above auth object and 
+// the name login as the key 
+// logout would be the key for the console log
+// property of 'GOODBYE!'
+
+// Don't have to clutter our code by using the
+// above example for SHORTHAND
+
+// THIS - the keyword this can be a major point of confusion 
+// and misery and hardship and general suffering in the 
+// life of a new JS developer
+// 
+// this is used for click events, keyboard events
+// for functional events with DOM related objects
+
+// What is tricky about the 'keyword' this seems
+// unpredictable, but there is a set of concrete
+// rules that explain the keyword 'this'
+
+// think about 'this' in terms of the current 
+// execution scope, it is going to give you 
+// an object back so depending upon the rules
+// this object changes - could be a reference
+// to the global scope
+
+function sayHi(){
+  console.log("HI");
+  console.log(this);
+};
+
+// When we define a function it appears as if it is 
+// floating on it's own, but if looking at the window
+// object in the console there we can see that
+// the console.log("HI"); is added as a property
+// on the Windows object, the window is the global 
+// scope of our browser, there is a different global 
+// object in node
+// 
+// not everytime you refer to 'this' keyword
+// in a function does it refer to the 'window' of the
+// browser, but the way we execute it does refer to
+// the window - things like
+// alert("LOL"); is a property on the window for 
+// browser so we could also say
+// window.alert("LOL"); and get the same result
+// another very important thing about the window
+// when we declare a variable like 
+// ex. 
+// var color = teal; 
+// that color or variable color is added to the window
+// property list or global scope
+// window.color can be used for example to access the 
+// color too
+// 
+// let and const are not added to the global scope
+// or to the window object in the browser
+// as a property
+// for ex. 
+// let num = 400; 
+// 
+// window.num
+// undefined
+// 
+// var on the other hand is added to the window scope
+//
+// we could also use a function expression
+//
+// const greet = function() {
+// console.log(this);
+// };
+//
+// greet() 
+// this will still refer to window object and that
+// object represents the current execution scope
+// 'this' is extremely useful when using methods
+// within an object
+// will start to make sense as pieces come together
+
+
