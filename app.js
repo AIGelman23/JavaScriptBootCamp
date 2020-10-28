@@ -3013,3 +3013,241 @@ const randomz = [...'hello', {...catDog}]; // combining
 // context matters, ...'hello' is an array, ...catDog is 
 // in an object
 
+// REST - it looks like spread but it's not
+// the opposite of spread - instead of spreading into 
+// arguments and or into a new object or an array
+// it collects things down into a single array
+// used in a function that excepts many different arguments
+
+/*
+function (x, y){
+
+}; // if we had pass into 100 arguments you would have
+  // to manually type each argument or parameter in
+
+  */
+
+  // There is a way to do this without REST by passing 
+  // many arguments in and this is called 
+  // 'THE ARGUMENTS OBJECT'
+  // - Available inside every function
+  // - It's an array-like object 
+  //  * Has a length property
+  //  * Does not have array methods like push/pop
+  // - Contains all the arguments passed to the function
+  // - Not available inside of arrow functions!
+
+/* function SumAll() {
+  let total = 0;
+  for(let i = 0; i arguments.length; i++) 
+{
+    total += arguments[i];
+    }
+}
+sumAll(8, 4, 3, 2,); // 17
+sumAll(2, 3) //5    
+   
+}  
+*/
+
+
+//function sum() {
+//  const argsArr = [...arguments];
+// return argsArr.reduce((total, currVal) => {
+//    return total + currVal
+//  })
+//};
+// arguments is not an actual array but is an 
+// array like object
+// we can use a spread like [...arguments] to iterate over
+
+/*
+function fullName(first, last){
+
+}; // every one needs a first and a last parameter 
+   // but there isn't actually a way of doing that
+   // if console.log(arguments); it just calls everything
+   // for ex. fullName('tom, 'jones', 'III', 'order pf the phoenix')
+   // can console.log(first); but arguments includes everything
+   // with REST that isn't a problem
+  */
+
+// REST PARAMS - collects all remaining arguments into
+// an actual array 
+// not an array like object or an array like immitation
+
+// function sum(...nums){
+// console.log(nums);
+// return nums.reduce((total, currVal) => {
+//  return total + currVal  
+// })
+// };
+//
+// We can use REST to collect remaining arguments
+// that have not been matched with a parameter
+//
+function fullName(first, last, ...titles){
+  console.log('first', first);
+  console.log('last', last);
+  console.log('titles', titles);
+};
+// we have a way of separating first and last out
+// and then including everything else
+// combine everything that has not been put into 
+// a parameter and include it in the rest parameter
+// rest parameter will be the last parameter
+// and this is the only option (we can use this)
+// in an arrow function as well
+
+const multiply = (...nums) => (
+  nums.reduce((total,currVal) + total * currVal)
+);
+  
+// We can use it as an actual array and have more flexibility
+// to determine what leftovers are collected
+// syntax is the same with ...spread and ...rest
+//
+
+// DESTRUCTURING - a short, clean syntax to 'unpack' 
+// - Values from arrays
+// - Properties from objects
+// Into distinct variables
+
+const raceResults = [
+  'Eliud Kipchoge', 
+  'Feyisa Lelisa', 
+  'Galen Rupp',
+  'Ghirmay Ghebreslassie', 
+  'Alphonce Simbu', 
+  'Jared Ward'
+];
+
+// An array of marathon results from 2016 Olympics
+// If we want to create an array for gold 
+//
+const gold = raceResults[0];
+const silver = raceResults[1];
+const bronze = raceRsults[2];
+// See above for pre array destructuring
+// equivalent ex.
+const [gold, silver, bronze] = raceResults;
+// will go into raceResults and use each result
+// according to their order in the array
+// and we will have three new variables
+// the first three assigned to these three new variables
+// destructuring according to index 0,1,2,3 etc
+
+// If we want to skip an index and want the first and fourth
+// results in the marathon
+
+const [first, , , fourth] = raceResults;
+// can use commas to ignore indexs that you don not want 
+// to destructure into the new array
+const [winner, ...others] = raceResults; 
+// winner would be set to 'Eliud Kipchoge' and ...others
+// would be the other winners in the marathon according
+// to their index
+// const [winner, , ...others] = raceResults; with a comma
+// separation will ignore 'Feyisa Lelisa' from the array
+// and store all others in the spread operator ...others
+
+// OBJECT DESTRUCTURING 
+// an array according to index, in an object variable
+// is based off the name of the property
+
+const runner = {
+  first: "Eliud", 
+  last: "Kipchoge",
+  country: "Kenya", 
+  title: "Elder of the Order of the Golder Heart of Kenya"
+};
+
+// to creat variable for first, last
+// use
+// ex. 
+
+const {first, last} = runner;
+
+// if it finds this property for first, last
+// it will store it in a variable first, last of 
+// the same name
+
+// const {first, last, time} = runner;
+// time would be undefined, must be existing key names
+// to be defined
+
+const {
+  country: nation,
+  title: honorific 
+} = runner;
+
+// using the key and creating a variable name 
+// we can store the value of that property in 
+// for instance nation, or honorific as 
+// in the example above
+
+const {first, last, ...others} = runner;
+
+// we will still have first, and last properties, 
+// but still have others unpacked into ...others
+
+// NESTED DESTRUCTURING 
+
+const results = [{
+    first: "Eluid", 
+    last: "Kipchoge", 
+    country: "Kenya"
+  }, 
+  {
+    first: "Feyisa",
+    last: "Lilesa", 
+    country: "Ethiopia"
+  }, 
+  {
+    first: "Galen", 
+    last: "Rupp", 
+    country: "United States"
+  }
+];
+
+const [,{country}] = results;
+// The above skips the first object
+// list inside of the array of objects
+// and destructures out the second list
+// object's country called "Ethiopia"
+
+// If we wanted the first name
+// ex. 
+
+const  [{first: goldWinner}, {country}] = results;
+// We can combine the syntax 
+// Doesn't recommend using nested destructuring 
+
+const [,silverMetal] = results; 
+const {country} = silverMedal;
+
+// PARAM DESTRUCTURING 
+
+// FIRST Example 
+// function print(person){
+//   const {first, last, title} = person; 
+//   console.log(`${first} ${last}, ${title}`);
+// };
+
+// SECOND Example - exact same output
+// function print({first, last, title}){
+//   console.log(`${first} ${last}, ${title}`);
+// };
+
+const response = [
+  'HTTP/1.1', 
+  '200 OK', 
+  'application/json',
+];
+
+function parseResponse([protocol, statusCode, contentType]){
+  console.log(`Status: ${statusCode}`);
+};
+// unpacking all three elements from an array
+// based off of the position in the array or index
+
