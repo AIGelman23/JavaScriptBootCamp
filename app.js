@@ -3622,3 +3622,75 @@ const person = {
 
 // Execution or way of invoking 'this' really matters
 
+/*
+
+Document Object Model
+
+-The DOM is a JavaScript
+ representation of a webpage
+- It's your JS "window" into the 
+  contents of a webpage
+- It's just a bunch of objects 
+  that you can interact with via 
+  JS
+
+  Can write JavaScript to figure
+  out how many inputs are on a form, 
+  change images, listen for clicks, 
+  listen for drags, drag and drop
+  if valid, if piece there already
+  than replace that piece
+
+  The key is understanding the OBJECT
+
+  The browser will turn everything into
+  OBJECTS that would be on the page
+
+  <body>
+    <h1>body</h1>
+    <ul>
+      <li>Hello!</li>
+      <li>Get some sleep</li>
+    </ul>
+  </body>
+
+  The browser takes all of this 
+  information and turns it into 
+  objects and there is a tree 
+  of objects as a virtual representation
+
+  Document -> Body -> [H1, UL --> LI, LI]
+
+  Each node is an OBJECT and each have a property.
+  They key is what context inside the object.
+
+  There are methods to delete Objects, 
+  could replace H1 with an H2 -- all is done
+  through JavaScript
+
+  Google Code Snippet 
+
+  const myImg = document.createElement('img');
+myImg.src="https://images.unsplash.com/photo-1507808973436-a4ed7b5e87c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=60"
+
+myImg.style.width= '200px';
+document.body.append(myImg);
+myImg.style.transition = 'all 2s';
+
+const allEls = document.body.children;
+
+
+setInterval(() => {
+    for (let el of allEls) {
+           const rotation = Math.floor(Math.random() * 360);
+           const x =  Math.floor(document.body.clientWidth * Math.random());
+           const y =  Math.floor(document.body.clientHeight * Math.random());
+    el.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
+    }
+   
+}, 2000);
+
+
+*/
+
+
