@@ -2902,3 +2902,114 @@ standalone argument with the spread
 operator
 
 */
+
+/*
+Spread syntax allows an itermable
+such as an array to be expanded in
+places where zero or more arguments 
+(for function calls) or elements 
+(for array literals) are expected, 
+or an object expression to be expanded
+places where zero or more key-value pairs
+(for object literals) are expected.
+*/
+
+/*
+  Spread in Array Literals 
+  Create a new array using an existing
+  array. Spreads the elements from one array
+  into a new array.
+
+  We can use to combine or create new arrays
+*/
+
+const cephalopods = ['dumbo octopus', 'humboldt squid', 'flamboyant cuttlefish'];
+
+const gastropods = ['giant african snail', 'banana slug', 'variable neon slug'];
+
+const cnidaria = ['fire coral', 'moon jelly'];
+
+const mollusca = [...cephalopods, ...gastropods];
+
+const inverts = [...cnidaria, ...gastropods, ...cephalopods];
+// will combine all eight elements 
+// can add an individual element 
+
+cephalopods.concat(gastropods);
+// data from cephalopods and combining with gastropods
+// using spread operator is easier to see and use
+
+const cephCopy = [...cephalopods];
+cephCopy === cephalopods; // false
+
+// when using spread operator it will make a new array 
+// in memory with a unique reference from the original
+
+const copy = cephalopods; 
+copy === cephalopods; // true
+
+"abcdefg".split('');
+[...'abcdefg'];
+// iterate over this iterable and add it to the array
+// can spread strings, not common to spread many of 
+// them into one array
+// same idea of spreading into a function call
+
+// Spread in Object Literals - Copies properties
+// from one object into another object literal
+
+const feline = {
+    legs: 4, 
+    family: 'Felidae'
+};
+
+const canine = {
+  family: 'Caninae', 
+  furry: true
+};
+
+const dog = {
+  ...canine, 
+  isPet: true, 
+  adorable: true
+};
+
+const houseCat = {
+  ...feline, 
+  isGrumpy: true, 
+  personality: 'unpredictable'
+};
+
+// some times can have conflicting properties
+// like legs 4 for each 
+// would only have one legs property because
+// when we have two equal value pairs they overwrite each 
+// other
+
+const catDog = {
+  ...canine,
+  ...feline
+}; 
+
+const tripod = {
+  legs: 3, 
+  ...canine  // if we want legs to remain 3 
+            // we want to include legs: 3 after ...canine
+};
+
+const catDogClone = {
+  ...catDog
+}; // catDogClone == catDog is equal to false because
+   // we made a copy
+
+// in the context of an array we can't spread objects
+// but in the context of an object we can spread 
+// Math.max(...dog) would not work either - only works with 
+// an array or object literal
+// we can spread a string into an object again
+
+const randomz = [...'hello', {...catDog}]; // combining 
+// or nest structured matters 
+// context matters, ...'hello' is an array, ...catDog is 
+// in an object
+
