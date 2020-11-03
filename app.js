@@ -3690,7 +3690,84 @@ setInterval(() => {
    
 }, 2000);
 
+DOCUMENT - 
+
+The Document Object is our entry
+point in to the world of DOM. 
+
+It contains the world of DOM. 
+
+It contains the representation
+of all the content on a page, 
+plus tons of useful methods and 
+properties.
+
+There is a hierarchy that exists
+- relationships between parents
+  and children 
+- the root of the tree is the DOCUMENT
+  when working with the DOM
+- in every single browser window
+  you can type DOCUMENT (contains a tree)
 
 */
 
+// The Document inteface represents
+// any web page loaded in the browser
+// and serves as an entry point into the 
+// web page's content, which is the DOM tree.
+// The DOM tree includes elements such as 
+// <body> and <table>, among many others. 
+// It provides functionality globally to the
+// document, like how to obtain the page's 
+// URL and create new elements in the document
+
+// The Document interface describes the common
+// properties and methods for any kind of document. 
+// Depending on the document's type (e.g. HTML, XML, SVG,
+// ...) a larger API is available: HTML documents, served
+// with the "text/html" content type, also implement the 
+// HTMLDocument interface, whereas XML and SVG documents
+// implement the XMLDocument interface
+
+// console.dir(document)
+// 
+// shows the document object model
+// this is where we start with everything
+
+// Everything being done was being 
+// done by typing Document.getElementById
+// there are all of these methods and properties
+// to manipulate and view content within the DOM
+
+// document.images
+// in the developer console
+// we would see everything on 
+// the page
+
+// if trying navigate manually 
+// or trying to understand it all
+// it is completely overwhelming
+// whether a file or website 
+// stored in one object called the 
+// the document
+
+// We will take a look at the first
+// batch of methods
+// 1. Select
+// 2. Manipulate 
+//
+// We could select a form and add two 
+// new buttons to it
+// Selecting a button and add highlight
+// or text
+//
+// SELECTING 
+//
+// - getElementById
+// 
+// document.getElementById('BEEAR');
+// null
+// --- there isn't an element with that ID
+// 
 
