@@ -3771,3 +3771,76 @@ There is a hierarchy that exists
 // --- there isn't an element with that ID
 // 
 
+// SELECTING 
+// 
+// - getElementById
+// - getElementsByTagName
+// - getElementsByClassName
+
+// document.getElementByTagName('input');
+// we won't get a single element back
+//
+// document.getElementByTagName('Input');
+// HTMLCollection(3) [input, input, input]
+// above looks like an array
+// but it is not an array
+// there is an HTML input element
+//
+// the same thing would be if we said
+// document.getElementByTagName('p');
+// HTMLCollection(2) [p, p#main, main: p#main]
+// > 0: p
+// > 1: p#main
+// > length: 2
+// > mmain: p#maain
+// > __proto__: HTMLCollection
+//
+// if we try with 3 li elements 
+// we get three li objects
+// 
+// document.getElementByTagName('li');
+// > HTMLCollection(3) [li.special, li, li.special]
+// > document.getElementsByTagName('');
+// HTMLCollection []
+// we get an empty collection back
+// if try it with one element 
+// we get a collection with 1 element in it
+// we never get one element back on it's own 
+// we get a collection back
+
+// What is this HTMLCollection?
+// It is an array like object but it is 
+// not an array - collection of objects in the DOM
+// but we can do some array-ish things
+// 
+// const inputs = document.getElementsByTagName('input');
+//
+// inputs[0]
+// <input type="text" placeholder="Bear Name">
+// 
+// inputs[1]
+// <input type="password" placeholder="password">
+//
+// inputs[2]
+// <input type="submit">
+//
+// inputs[3]
+// undefined
+//
+// undefined
+// inputs.pop()
+// Uncaught TypeError: inputs.pop is not a 
+// function 
+// 
+// inputs.)
+//
+// for(let input of inputs) {console.log(input)}
+// <input type="text" placeholde="Bear Name">
+// <input type="password" placeholder="password">
+// <input type="submit">
+// undefined
+
+
+
+
+
