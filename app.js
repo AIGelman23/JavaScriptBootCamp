@@ -3840,6 +3840,61 @@ There is a hierarchy that exists
 // <input type="submit">
 // undefined
 
+// document.getElementsByClassName() - we will
+// get an element(s) back in a collection
+
+// document.getElementsByClassName('header');
+// HTMLCollection [h1.header]
+//    > 0: h1.header
+//      length: 1
+//    > ___proto___: HTMLCollection
+// 
+// document.getElementsByClassName('special');
+// HTMLCollection(2) [li.special, li.special]
+// again this is an object
+// 
+// document.getElementsByClassName('chickenssss');
+// HTMLCollection [] 
+// won't work as there is no such class name that exists
+//
+// document.getElementsByClassName('main'); 
+// HTMLCollection []
+//
+// getElementsByClassName uses different criteria
+// compared to getElementsByTagName
+//
+// if I wanted to select one element and further
+// search within that element - lets say 
+// I had the class of special on one part of the page
+// document.getElementsByClassName('special');
+// > HTMLCollectoin(3) [p.special, li.special, li.special]
+// document.getElementsByTagName('ul')[0]
+// undefined
+// ul
+// ul.getElementsByClassName('special');
+// HTMLCollection(2) [li.special, li.special]
+// narrowed it down to the UL with special
+// 
+// ul.getElementsByTagName('li');
+// > HTMLCollection(3) [li.special, li, li.special]
+// now we get three elements because there
+// are three li's within the UL
+
+// querySelector
+// - A newer, all-in-one method to select a single element
+// Pass in a CSS Selector
+
+// Finds first h1 element:
+document.querySelector('h1');
+
+// Finds first element with ID of red: 
+document.querySelelctor("#red");
+
+// Finds fist element with class of 
+document.querySelector('.big');
+
+
+
 
 
 
