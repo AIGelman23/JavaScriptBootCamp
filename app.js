@@ -3893,6 +3893,16 @@ document.querySelelctor("#red");
 // Finds fist element with class of 
 document.querySelector('.big');
 
+// query selector works within Internet Explorer
+
+// querySelector gives us the first match
+// versus getElementsByTagName which gives
+// us an array like object
+
+// when we use querySelector we have to be more
+// specific and pass in the CSS specific style
+// selector
+
 
 
 
