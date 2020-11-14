@@ -28,3 +28,12 @@ input[type="password"] {
  text-decoration: line-through;
  todo.style.opacity = '50%'; 
 }
+
+button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 50px;
+  width: 100px;
+}
+
