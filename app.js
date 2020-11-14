@@ -1,3 +1,4 @@
+
 if (1 === 1){
   console.log("It's True!");
 }
@@ -3903,8 +3904,78 @@ document.querySelector('.big');
 // specific and pass in the CSS specific style
 // selector
 
+// can save to a variable with querySelector
+// which does have an object
+
+//  could say the first class with li
+// document.querySelector('li.special');
 
 
+// COMMUNICATING WITH EVENTS
+
+/*
+Comment Events --- 
+
+- Clicks
+- Drags
+- Drops
+- Hovers
+- scrolls
+- Form Submission 
+- Key Presses
+- Focus / Blur
+- Mouse Wheel 
+- Double Click
+- Copying
+- Pasting
+- Audio Start
+- Screen Resize
+- Printing
+*/
+
+// All of these events follow a similar pattern
+// even though the triggers are different
+
+// We are listening for event on a given thing or
+// with a given thing and then we have the event itself
+// called the event type 
+// then we have the code that we want JavaScript to run
+// we might listen or weight for a click on an item
+//
+// When a user clicks return or types return then 
+// we have some code that we want the user to run 
+// 
+// ex. 
+//
+// the thing  event type  the code to run
+//  button    click       change the color
+//  input     hits return   get search
+// image      mouseover     display the image caption
+//
+// we have to find an element, event type, and code
+// we want to run when we want to make this happen
+//
+// two events you should probably not use
+// often used in bad tutorials
+//
+// The first syntax involves putting our code in the element
+// this is not a good idea, could be super cluttered HTML
+// we don't want to do this 
+// Normally if you were to use inline events you 
+// would write a function and call the function 
+// but it is not worth doing!
+
+// If we have another button without the onlick nothing happens
+// we are simply registering an event listener
+// if we added an onclick to to a second button
+// we would get to events that are completely different
+//
+// if we want to use these events inline we us them with
+// with the start of 'on' like 'onclick'
+// we don't want to put all this JavaScript in our elements
+// 
+
+//
 
 
 
