@@ -3977,6 +3977,14 @@ Comment Events ---
 
 //
 
-
-
-
+// How do we attach event listeners to multiple elements?
+// 
+// How do we make every up vote on Reddit and make it 
+// do something, we don't hardcode it, we create a loop
+//
+// Each time clicking getting an event that is firing
+// This isn't being done manually where they are
+// calling addEventListener on ever element
+//
+// Calendar with every single day on a calendar 
+// and there is functionality 

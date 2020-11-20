@@ -1,6 +1,5 @@
 h1 {
-  color: purple;
-  font-size: 60px;
+  text-align: center;
 }
 
 #bear-photo {
@@ -37,3 +36,13 @@ button {
   width: 100px;
 }
 
+#boxes{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: 200px;
+  height: 100px;
+}
