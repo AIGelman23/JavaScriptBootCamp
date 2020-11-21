@@ -25,10 +25,23 @@ form.addEventListener('submit', function(e){
 
 const formData = {};
 for(let input of [creditCardInput, termsCheckBox, veggieSelect]) {
-  input.addEventListener('input', e => {
-    formData[e.target.name] = e.target.value;
+  input.addEventListener('input', ({target}) => {
+    const { name, type, value, checked } = target;
+    formData[name] = type === 'checkbox' ? checked : value;
+    console.log(formData);
   });
-}
+} // didn't have to reference manually 
+  // there is no value to check box either it is off 
+  // or on but we can check if the type input 
+  // is a checkbox
+
+  // input.addEventListener('input', ....) 
+  // will always listen for a change
+  // for any new characters
+  // and input.addEventListener('change', ...)
+  // is a bit different and works blur on input 
+  // and if mouse is not focused on the text field
+  // for instance
 
 //creditCardInput.addEventListener('input', (e) => {
 //  console.log('CC CHANGED!', e);
