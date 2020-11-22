@@ -52,6 +52,7 @@ const moveX = (element, amount, delay, onSuccess, onFailure) => {
 //});
 
 // LOOK AT THIS UGLY MESS!
+/*
 moveX(btn,300,1000,() => {//success callback
   moveX(btn,300,1000,() => {
 				//success callback
@@ -90,9 +91,30 @@ moveX(btn,300,1000,() => {//success callback
 	}
 );
 
-
+*/
 
 // with asynchronous request
 // if the request works then here is the call back
 // if the request does not work then here is the code
 // that throws an
+
+// Promises allow us to rewrite code for
+// example with moveX where we don't
+// have to do so much crazy nesting
+
+// ENTER PROMISES 
+// 
+// A Promise is an object representing the eventual completion 
+// or failure of an asychronous operation
+
+moveX(btn, 100, 1000)
+	.then(() => moveXPromise(btn, 100, 1000))
+	.then(() => moveXPromise(btn, 200, 1000))
+	.then(() => moveXPromise(btn, 300, 1000))
+	.then(() => moveXPromise(btn, 50, 1000))
+	.then(() => moveXPromise(btn, 50, 1000))
+	.catch((position) => {
+		alert('CANNOT MOVE FURTHER!');
+	});
+
+	
