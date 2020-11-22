@@ -3988,3 +3988,157 @@ Comment Events ---
 //
 // Calendar with every single day on a calendar 
 // and there is functionality 
+
+
+// ASYNC JS, PROMISES, & REQUESTS
+
+// Our main goal is to make each 
+// HTTP requests from javascript 
+// from the client or from the 
+// browser to load data from an 
+// an API 
+
+// If you make single page apps
+// and in the projects that we 
+// build late on there's at least
+// a couple examples where we're
+// working with HTTP requests in 
+// the browser 
+// 
+// But before we do that we'll 
+// talk about promises and how to
+// use promises to manage 
+// asynchronous code and make
+// our life easier
+// --- but before we do that
+// we're going to talk about
+// asynchronous code or asynct
+// javascript and what it actually
+// means and in order to do that
+// we need to understand how 
+// javascript works behind the
+// At least we don't have to go
+// crazy into detail
+//
+// But we need to understand the basics
+// so that's where we're going to start
+// we will talk about something called 
+// 'the Call Stack' 
+//
+// 'CALL STACK' 
+// The mechanism the JS interpreter uses to keep
+// track of its place in a script that calls 
+// multiple functions
+//
+// How JS "knows" what function is currently being
+// run and what functions are called from within that
+// function, etc.
+//
+// If your functions make up an entire book
+// the 'Call Stack' makes up the book mark
+// to figure out where you are or keep 
+// track of your current place
+//
+// Call are what calls are being made and
+// what are waiting to be called back
+// the stack has to do with the data structure
+// in the computer science called a stack 
+// Stack is a very simple data structure 
+// All you need to know is that just like a 
+// a stack of books on your desk or a stack of 
+// plates on your sink the last thing that you 
+// put in is going to be on top 
+// and that would be the first thing that you 
+// remove --- so the last thing that was added
+// the most recently placed item in our case this 
+// apple on top will be the first thing out you don't 
+// grab from the bottom from a stack of papers
+// -- you don't grab backwards or from the bottom
+// of the stack of papers first!
+//
+//
+// HOW IT WORKS 
+// 
+// - When a script calls a function, the interpreter
+// adds it to the call stack and then starts carrying
+// out the function. 
+// - Any functions that are called by that function
+// are added to the call stack further up, and run 
+// where their calls are reached.
+// - When the current function is finished, the 
+// interpreter takes it off the stack and resumes
+// execution where it left off in the last code listing
+//
+// 
+//
+// const multiple = (x, y) => x * y;
+// const square = (x) => multiply(x, x);
+//
+// const isRightTriangle = (a, b, c) => {
+//    return square(a) + square(b) === square(c);   
+// };
+//
+// isRightTriangle(3, 4, 5); 
+//
+//
+// The Call Stack Below
+//
+//    multiply(3,3) ---> doesn't call 
+//                       any other functions
+//                       and returns 3 * 3 or 9
+//           9           first thing in is the last
+//                       out --> popped off first
+//    square(3)
+//              
+//           9     ----> returns 9 so this popped off
+//                       the stack         
+//       multiply(3,3)
+//
+// isRightTriangle(3, 4, 5)
+// << square(3) >> + square(4) === square(5)
+//
+// 
+// isRightTriangle(3,4,5)
+// 9 + square(4) === square(5)
+//
+// then is there another function call? yes
+// 
+// square(4)
+//    multiply(4,4) <---- added to the top of the call
+//                        stack
+//                        (more like a data structure)
+//    multiply(4,4) = 16 <---- added to the top of the
+//                             stack
+//    16 is returned and so multiply(4,4) is
+//    removed from the top of the stack
+//    square(4) = 16 < ---- this is returned and
+//                          removed from top of stack
+//     isRightTriangle(3,4,5)
+//     9+16 === square(5)
+//     
+//      square(5) <------ added to top of call stack
+//         multiply(5,5)
+//      multiply(5,5) <---- added to top of call stack
+//          25      returns 25
+//                  and is multiply(5,5)
+//                  popped off the top
+//       
+//      isRightTriangle(3,4,5)
+//      9 + 16 === 25  true
+//      popped off stack and call stack is empty
+//      
+//      how we can see with chrome dev tools
+//      
+
+
+
+
+
+
+
+
+
+
+
+
+
