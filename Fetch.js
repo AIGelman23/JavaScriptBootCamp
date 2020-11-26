@@ -40,21 +40,30 @@ fetch('https://icanhazdadjoke.com/23/2', {
   a rejected promise if for some reason the fetch didn't 
   for instance if the Internet was not connected
 
-
 */
 
-fetch('https://swapi.dev/api/planets21/')
+fetch('https://swapi.dev/api/planets/')
 // promise returned from fetch
 .then((response) => {
-    if(!response.ok){
+    if(!response.ok)
      throw new Error(`Status Code Error: ${response.status}`);
-    } else {
-    response.json().then((data) => {
-     for(let planet of data.results) {
-       console.log(planet.name);
-       }
-    });
-  }
+
+     return response.json()
+  })
+.then((data) => {
+      console.log("FETCHED ALL PLANETS (first 10)");
+      const filmUrl = data.results[0].films[0];
+      return fetch(filmUrl);
+})
+.then((response) => {
+    if(!response.ok)
+     throw new Error(`Status Code Error: ${response.status}`);
+
+     return response.json()
+})
+.then((data) => {
+  console.log("FETCHED FIRST FILM, based off of first planet");
+  console.log(data.title);
 })
   .catch((err) => {
     console.log("SOMETHING WENT WRONG WITH FETCH!!!!");
@@ -123,3 +132,14 @@ fetch('https://swapi.dev/api/planets21/')
 // much better than having to use XMLHttpRequests
 // it's easier to chain and make multiple requests 
 // in a row
+
+// The main selling point of Fetch is not having to 
+// use callbacks and nestings
+// instead we can use promises and chain a bunch of
+// .then()
+
+// Fetch is much better because we can keep things
+// flat, non-nested, and we can have multiple requests
+// that are dependent on one specific request, but 
+// don't have to nest so deep -- but we can refactor
+// even easier
