@@ -276,4 +276,149 @@
 // showing whether you are following the exact
 // rules of JSON
 
+// XMLHttpRequest 
+//
+// The "original" way of sending requests
+// via JS 
+// 
+// Does not support promises, 
+// so there are a lot of callbacks!
+//
+// There is a lot of capitalization!
+//
+// The syntax is also clunky and 
+// can be difficult to remember
 
+// XMLHttpRequest - objects within the browser
+// we can create that have different methods
+// that we can use to fetch data from an API
+// they basically generate an HTTP request
+// and is confusing by the name and is a relic
+// from when XML was the standard
+// We can use XMLHttpRequests also known as 
+// XHRs to fetch any sort of data from an API
+// and this doesn't just have to be XML 
+// again there are no support for Promises
+// so we end up with many many callbacks 
+// if we have nested requests
+// things where we have one request we get 
+// information back but then need a second
+// request which we mimicked with a fake HTTP
+// request earlier
+//
+// No one likes the syntax of XHRs 
+// very hard to remember!!
+
+// An example of an XMLHttpRequest ---
+//
+// const myReq = new XMLHttpRequest(); 
+//
+// myReq.onload = function() {
+//    const data = JSON.parse(this.responseText);
+//    console.log(data); 
+// };
+// myReq.onerror = function(err) {
+//  console.log('ERROR!, err);
+// };
+// myReq.open('get', 'https://icanhazdadjoke.com/', true);
+// myReq.setRequestHeader('Accept', ' application/json');
+// myReq.send();
+
+// there is a branching for either request success
+// or failure 
+// if successful the myReq.onLoad function will run
+// if not the myReq.onerror function will run
+
+/*
+  Template:
+
+  function reqListener () {
+    console.log(this.responseText);
+  }
+
+  var oReq = new XMLHttpRequest(); 
+  onReq.addEventListener("load", reqListener);
+  onReq.open("GET", "https://www.example.org/example.txt");
+  onReq.send();
+*/
+
+const firstReq = new XMLHttpRequest(); 
+firstReq.addEventListener('load', function() {
+ console.log('FIRST REQUEST IT WORKED!!!');
+ const data = JSON.parse(this.responseText);
+ const filmUrl = data.results[0].films[0]; 
+const filmReq = new XMLHttpRequest();
+ filmReq.addEventListener('load', function() {
+  console.log("SECOND REQUEST WORKED!!!");
+  const filmData = JSON.parse(this.responseText);
+  console.log(filmData);
+ })
+ filmReq.addEventListener('error', function(e) {
+  console.log("ERROR!!", e);
+ })
+ filmReq.open('GET', filmUrl);
+ filmReq.send();
+
+// for(let planet of data.results){
+//   console.log(planet.name);
+// };
+  // console.log(firstReq.responseText); 
+  // 'this' keyword can't be used in an arrow function 
+  // we would get undefined if we console log this.responseText
+
+
+});
+firstReq.addEventListener('error', () => {
+  console.log('ERROR!!!!!!');
+});
+firstReq.open('GET', "https://swapi.dev/api/planets/");
+firstReq.send();
+console.log("Request Sent!");
+
+// myReq.onload = function() {
+//    const data = JSON.parse(this.responseText);
+//    console.log(data); 
+// };
+//
+// the way that you access this data is through
+// this.responseText
+// 'this' refers tot the request itself
+
+// firstReq.responseText reveals the JSON data
+// this JSON object is again NOT considered JavaScript
+
+// ----
+// we can loop over and grab the names of the planets 
+// we can then create elements and then append this 
+// information to elements to give a visual overview
+// to individuals
+
+// When we make requests that are dependent on one another 
+// we have to start chaining requests together 
+
+// If we look at the data we get back it includes
+// residents and films which are actually just
+// references to other API endpoints
+// So if we wanted to take the first planet and look
+// at the first resident of that planet we would send
+// another request to this endpoint, however, 
+// we first need to wait for this request to come back
+// we can have a second request gather a individual(s)
+// living on a planet(s)
+
+// This is a you URL that we can send a request to 
+// get information http://swapi.dev/api/films/1/ 
+// and it looks like this is film/1 which is 
+// A New Hope
+// so now we can send a request to this url
+
+ // selecting the first film and planet that it appears in
+ // using that film's URL and so we couldn't make the
+ // the second request until the first one is completed
+ // often you would put a second request if the 
+ // first one fails
+
+ // things are really messy with the use of XHRs 
+ // they are very difficult with all the nesting
+
+ 
