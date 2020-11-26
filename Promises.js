@@ -99,6 +99,7 @@
 // if something takes time before
 // rejecting a promise 
 
+/*
 const makeDogPromise = () => {
 return new Promise((resolve, reject) => {
 	setTimeout(() => {
@@ -119,14 +120,15 @@ return new Promise((resolve, reject) => {
 	// the above function itself is not a Promise
 	// we are executing a function that returns 
 	// a promise (either resolved or rejected eventually)
-
+*/
+	/*
 makeDogPromise()
 .then(() => {
 	console.log("Yay we got a dog!!!");
 })
 .catch(() => {
 	console.log("No Dog!");
-});
+}); */
 
 // if you used makeDogPromise again 
 // that would be two completely separate 
@@ -222,22 +224,42 @@ const fakeRequest = (url) => {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
 				const pages = {
-					'/users': [
-						{id: 1, username: 'Bilbo'},
-						{id: 5, username: 'Esmerelda'},
-					], 
-					'/about': 'This is the about page!'
+					'/users'		: [ 
+						{ id: 1, username: 'Bilbo' }, 
+						{ id: 5, username: 'Esmerelda' }
+					],
+					'/users/1'		: {	
+						id:				 1, 
+						username: 'Bilbo',
+						upvotes: 360, 
+						city: 'Lisbon',
+						topPostId: 454321
+					},
+					'/users/5'		: {	
+						id:			  5, 
+						username: 'Bilbo',
+						upvotes: 360, 
+						city: 'Lisbon',
+						topPostId: 454321
+					},
+					'/posts/454321'		: {	
+						id:			 454321, 
+						title: 
+							'Ladies & Gentlemen, may I introduce my pig Hamlet'
+					},
+					'/about'					: 'This is the about page!'
 				};
 				const data = pages[url];
-				if(data){
-					resolve({status: 200, data });
+				if (data){
+					resolve({ status: 200, data });
 				} else {
-					reject({ status: 404 })
+					reject({ status: 404 });
 				}
-		}, 1000)
-	})
-}
+		}, 1000);
+	});
+};
 
+/*
 fakeRequest('/users')
 	.then((res) => {
 	console.log('Status Code', res.status);
@@ -257,3 +279,91 @@ fakeRequest('/dogs')
 	console.log(res.status);
 	console.log("REQUEST FAILED!");
 });
+*/
+
+// CHAINING TOGETHER PROMISES
+
+/*
+fakeRequest('/users').then((res) => {
+	const id = res.data[0].id;
+	fakeRequest(`/users/${id}`).then((res) => {
+		const postId = res.data.topPostId
+		fakeRequest(`/posts/${postId}`).then((res) => {
+			console.log(res);
+		});
+	})
+})
+.catch((err) => {
+	console.log("OH NO!", err);
+});
+*/
+
+// if the endpoint path was incorrect for the fakeRequest
+// to resolve info under a certain id, and topPostId 
+// an Uncaught (in promise) {status: 404} would occur 
+
+// if we mess up this request and use it wrong or 
+// put in an invalid URL, we should be able to "catch"
+// it does and we get an error 404 and an object 
+// but if this URL is valid and instead we mess up
+// the request and you are user that doesn't exist
+// the promise would be rejected, but we need
+// to be able to also include a "catch" statement
+// --- if we do a dot '.' and in the callback and with 
+// the dot '.' we include a promise we can then 
+// call it immediately after on the same level
+// and don't have to nest or can change it and 
+// continue to chain as long each callback for 
+// a '.' dot then returns a promise we won't nest
+// the '.' dot or do any nesting at all.
+// Instead we return to promise this .dot and then 
+// it returns a promise, this dot '.' then will
+// run if the second promise if the first returned
+// promise was resolved and so forth - in a chain.
+
+fakeRequest('/users')
+.then((res) => {
+	console.log(res);
+	const id = res.data[0].id;
+	return fakeRequest(`/users/${id}`)
+})
+.then((res) => {
+	console.log(res);
+	const postId = res.data.topPostId
+	return fakeRequest(`/posts/${postId}`)
+})
+.then((res) => {
+	console.log(res);
+})
+.catch((err) => {
+	console.log("OH NO!", err);
+});
+
+// we can write things in a more linear way 
+// by chaining promises together 
+// and returning a request
+// and because of this structure 
+// if anything were to happen 
+// we would only need one catch 
+// and therefor ethis catch would run if any of
+// these promises are rejected 
+// --- we have the promise and therefore
+// we only need one catch to catch ALL
+
+// We don't have to nest these, 
+// although these take time, 
+// we don't need a bunch of callbacks 
+// and continue to nest with the 
+// multi-level craziness
+// all we have to do is make sure we return 
+// a promise instead of this callback 
+// and then we can add as many levels as we want
+// no crazy multi-level dependencies going on 
+// cleaner code and easier to read
+// if one promise, fails then it continues on
+
+// we can have asynchronous actions that we want
+// to happen one after the other 
+// --- so not simultaneously, but one after another
+// and then as long as we return a promise each time
+// then everything works and we only need one .catch
