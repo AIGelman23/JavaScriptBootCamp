@@ -307,3 +307,43 @@ async function lightShow(){
 }
 
 lightShow();
+
+// Promis.all method
+
+async function get3Pokemon(){
+  const prom1 = axios.get('https://pokeapi.co/api/v2/pokemon/1/');
+  const prom2 = axios.get('https://pokeapi.co/api/v2/pokemon/2/');
+  const prom3 = axios.get('https://pokeapi.co/api/v2/pokemon/3/');
+  const results = await Promise.all([prom1, prom2, prom3]);
+  printPokemon(results);
+};
+
+function printPokemon(results){
+  for(let pokemon of results){
+    console.log(pokemon.data.name);
+  }
+};
+
+get3Pokemon();
+
+// instead of using all these variables prom1 to prom 3
+// we can use a Promise helper method called 
+// Promise.all
+// Promise.all accepts an array of Promises
+
+// This promise for Promise.all is resolved
+// when it's own promises are resolved 
+// then we are awaiting Promise.all to be resolved
+// take that resolved value and it's now stored
+// in the results variable
+// 
+// Then we can print out something for reach each one
+// using maybe a print function 
+
+// Much nicer then awaiting individual promises, 
+// instead we can await that Promise.all 
+// and then move on
+// 
+// Using Async and Await makes the code appear
+// synchronous but it is still behaving asynchronous
+
