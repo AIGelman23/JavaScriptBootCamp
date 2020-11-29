@@ -410,6 +410,8 @@ class Color {
     this.g = g;
     this.b = b;
     this.name = name;
+    this.calcHSL(); // calculate HSL based on RGB passed in
+    // calls calcHSL immediately
    // console.log('Inside Constructor';)
    // console.log(r,g,b);
   }
@@ -425,9 +427,68 @@ class Color {
   }
   hex(){
     const { r, g, b } = this;
-      return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)
-    };
+      return ('#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)
+      );
   }
+  hsl() {
+    const {h, s, l} = this;
+    return `hsl(${h}, ${s}%, ${l}%)`;
+  }
+  fullySaturated(){
+    const { h, l }  = this;
+    return `hsl(${h}, 100%, ${l}%)`;
+  }
+  opposite(){
+    const {h, s, l} = this;
+    const newHue = (h + 180) % 360;
+    return `hsl(${newHue}, ${s}%, ${l}%)`;
+  }
+  calcHSL() {
+    const { r, g, b } = this;
+    // Make r, g, and b fractions of 1
+    r /= 255;
+    g /= 255;
+    b /= 255;
+  
+    // Find greates and smallest channel values
+    let cmin = Math.min(r, g, b),
+      cmax = Math.max(r, g, b), 
+      delta = cmax - cmin, 
+      h = 0, 
+      s = 0, 
+      l = 0, 
+      if (delta == 0) h = 0;
+      else if (cmax == r)
+      // Red is max
+        h = ((g - b) / delta) % 6;
+      else if (cmax == g)
+      // Green is max
+        h = (b - r) / delta + 2;
+      else
+      // Blue is max
+      h = (r - g) / delta + 4;
+  
+      h = Math.round(h * 60);
+  
+      // Make negative hues positive and behind 360 degrees
+      if (h < 0) h += 360;
+      // Calculate lightness;
+      l = (cmax + cmin) / 2;
+  
+      // Calculate saturation
+      s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+  
+      // Multiply l and s by 100
+  
+      s = +(s * 100).toFixed(1);
+      s = +(l * 100).toFixed(1);
+      this.h = h;
+      this.s = s;
+      this.l = l;
+      // hsl exist on individual instances of Color prototype object
+      // to assign color for hue saturation light
+  }
+}
 
 
 const red = new Color(255, 67, 89, 'tomato');
@@ -474,3 +535,109 @@ const white = new Color(255, 255, 255, 'white');
 // hex and rgb functions / methods 
 // are listed under the __proto__ type reference
 // or Prototype object
+
+// can now use hsl() function with the Class Color
+// for example 
+
+white.hsl()
+"hsl(0,0%,100%)"
+// or 
+red.hsl()
+
+document.body.style.backgroundColor = red.hsl();
+document.body.style.backgroundColor = red.fullySaturated();
+
+
+// Keyword Extends and Keyword Super
+
+// both have to do with subclassing and or 
+// inheritance
+
+class Pet {
+  constructor(name, age){
+    console.log("IN PET CONSTRUCTOR");
+    this.name = name;
+    this.age = age;
+  }
+  eat() {
+    return `${this.name} is eating.`;
+  }
+}
+
+class Cat extends Pet {
+  meow(){
+    return 'MEOWWWW!!';
+  }
+}
+
+const monty = new Cat('monty', 9);
+
+class Dog extends Pet {
+  constructor(name, age, livesLeft=9){
+    console.log("IN CAT CONSTRUCTOR");
+    super(name, age)
+    this.livesLeft = livesLeft;
+  }
+  bark(){
+    return 'WOOFF!!';
+  }
+  eat(){
+    return `${this.name} scarfs his food!`
+  }
+}
+
+const monty = new Cat('wyatt', 10);
+
+
+// can have a planet Class called Pet
+// and it Cat and Dog can extend
+// from Pet using class inheritance
+// so that both Cat and Dog objects
+// have access to name and age
+// and to eat 
+//
+// under __proto__ we will see functionality
+// bark, and eat even though never defined
+// directly on Cat or Dog classes
+//
+// monty.eat() -- not defined on Cat
+// monty.meow() -- defined on Cat
+
+// if adding eat() function to Dog class
+// and it doesn't find eat under the Dog 
+// __proto__ or prototype it will look
+// on the pet prototype, and if it didn't
+// find it there it would look under the
+// object prototype and if it didn't find 
+// it any of those places it will be unhappy
+
+// SUPER
+
+// sometimes we want to rely on the constructor
+// specifically from the class Pet for instance
+// which is inherited by both the Cat And Dog
+// classes
+//
+// currently we have no constructors within 
+// either Cat or Dog classes but if we want
+// to have some additional info for Cat
+// for instance such as constructor(name, age, livesLeft = 9)
+// we could manually set inside the constructor
+// this.name = name, this.age = age, and this.livesLeft = livesLeft
+// and if we don't want to duplicate this we can 
+// use the 'super' keyword 'super' is going to reference
+// the class we are extending from it will 
+// call the Pet constructor from the Cat or Dog class
+//
+// super(name, age)
+// will get access to the Parent class this.name = name
+// and this.age = age so that we don't have to have
+// the references under the Cat constructor for instance
+// we reused the functionality, but added functionality
+// on our own for Cat
+// super is a referencing from what we are extending from
+// which is Pet
+
+// We might ahve other data we want to add on or 
+// inherit depending upon on the complexity of our 
+// classes -- 
